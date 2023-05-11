@@ -145,7 +145,7 @@ def main() -> int:
             print(f'### {base_uri}#{property_name}')
             print(f':{property_name} rdf:type owl:ObjectProperty ;')
             print(f'\t rdfs:domain :{resource[-1]}Spec;')
-            print(f'\t rdfs:range :{build_property_range(obj_property)};')
+            print(f'\t rdfs:range {build_property_range(obj_property)};')
             print(f'\t rdf:label "{property_name}"@en')
 
 
