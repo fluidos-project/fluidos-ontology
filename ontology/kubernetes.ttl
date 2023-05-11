@@ -59,7 +59,7 @@
 :componentstatuses_conditions rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ComponentStatus;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]ComponentCondition ;
+    rdf:first :ComponentCondition ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "componentstatuses_conditions"@en
@@ -166,7 +166,7 @@
 :endpoints_subsets rdf:type owl:ObjectProperty ;
 	 rdfs:domain :Endpoints;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]EndpointSubset ;
+    rdf:first :EndpointSubset ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "endpoints_subsets"@en
@@ -341,7 +341,7 @@
 :limitrangesSpec_limits rdf:type owl:ObjectProperty ;
 	 rdfs:domain :LimitRangeSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]LimitRangeItem ;
+    rdf:first :LimitRangeItem ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "limitrangesSpec_limits"@en
@@ -396,7 +396,7 @@
 :namespacesSpec_finalizers rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NamespaceSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "namespacesSpec_finalizers"@en
@@ -466,7 +466,7 @@
 :nodesSpec_podCIDRs rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NodeSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "nodesSpec_podCIDRs"@en
@@ -479,7 +479,7 @@
 :nodesSpec_taints rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NodeSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]Taint ;
+    rdf:first :Taint ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "nodesSpec_taints"@en
@@ -539,7 +539,7 @@
 :persistentvolumeclaimsSpec_accessModes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PersistentVolumeClaimSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "persistentvolumeclaimsSpec_accessModes"@en
@@ -629,7 +629,7 @@
 :persistentvolumesSpec_accessModes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PersistentVolumeSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "persistentvolumesSpec_accessModes"@en
@@ -717,7 +717,7 @@
 :persistentvolumesSpec_mountOptions rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PersistentVolumeSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "persistentvolumesSpec_mountOptions"@en
@@ -847,7 +847,7 @@
 :podsSpec_containers rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]Container ;
+    rdf:first :Container ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_containers"@en
@@ -870,7 +870,7 @@
 :podsSpec_ephemeralContainers rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]EphemeralContainer ;
+    rdf:first :EphemeralContainer ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_ephemeralContainers"@en
@@ -878,7 +878,7 @@
 :podsSpec_hostAliases rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]HostAlias ;
+    rdf:first :HostAlias ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_hostAliases"@en
@@ -911,7 +911,7 @@
 :podsSpec_imagePullSecrets rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]LocalObjectReference ;
+    rdf:first :LocalObjectReference ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_imagePullSecrets"@en
@@ -919,7 +919,7 @@
 :podsSpec_initContainers rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]Container ;
+    rdf:first :Container ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_initContainers"@en
@@ -962,7 +962,7 @@
 :podsSpec_readinessGates rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]PodReadinessGate ;
+    rdf:first :PodReadinessGate ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_readinessGates"@en
@@ -1020,7 +1020,7 @@
 :podsSpec_tolerations rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]Toleration ;
+    rdf:first :Toleration ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_tolerations"@en
@@ -1028,7 +1028,7 @@
 :podsSpec_topologySpreadConstraints rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]TopologySpreadConstraint ;
+    rdf:first :TopologySpreadConstraint ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_topologySpreadConstraints"@en
@@ -1036,7 +1036,7 @@
 :podsSpec_volumes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PodSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]Volume ;
+    rdf:first :Volume ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "podsSpec_volumes"@en
@@ -1208,7 +1208,7 @@
 :resourcequotasSpec_scopes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ResourceQuotaSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "resourcequotasSpec_scopes"@en
@@ -1295,7 +1295,7 @@
 :serviceaccounts_imagePullSecrets rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceAccount;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]LocalObjectReference ;
+    rdf:first :LocalObjectReference ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "serviceaccounts_imagePullSecrets"@en
@@ -1316,7 +1316,7 @@
 :serviceaccounts_secrets rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceAccount;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]ObjectReference ;
+    rdf:first :ObjectReference ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "serviceaccounts_secrets"@en
@@ -1389,7 +1389,7 @@
 :servicesSpec_clusterIPs rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "servicesSpec_clusterIPs"@en
@@ -1397,7 +1397,7 @@
 :servicesSpec_externalIPs rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "servicesSpec_externalIPs"@en
@@ -1425,7 +1425,7 @@
 :servicesSpec_ipFamilies rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "servicesSpec_ipFamilies"@en
@@ -1448,7 +1448,7 @@
 :servicesSpec_loadBalancerSourceRanges rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "servicesSpec_loadBalancerSourceRanges"@en
@@ -1456,7 +1456,7 @@
 :servicesSpec_ports rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]ServicePort ;
+    rdf:first :ServicePort ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "servicesSpec_ports"@en
@@ -1516,7 +1516,7 @@
 :mutatingwebhookconfigurations_webhooks rdf:type owl:ObjectProperty ;
 	 rdfs:domain :MutatingWebhookConfiguration;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]MutatingWebhook ;
+    rdf:first :MutatingWebhook ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "mutatingwebhookconfigurations_webhooks"@en
@@ -1559,7 +1559,7 @@
 :validatingwebhookconfigurations_webhooks rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ValidatingWebhookConfiguration;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]ValidatingWebhook ;
+    rdf:first :ValidatingWebhook ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "validatingwebhookconfigurations_webhooks"@en
@@ -1647,7 +1647,7 @@
 :customresourcedefinitionsSpec_versions rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CustomResourceDefinitionSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]CustomResourceDefinitionVersion ;
+    rdf:first :CustomResourceDefinitionVersion ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "customresourcedefinitionsSpec_versions"@en
@@ -2035,7 +2035,7 @@
 :statefulsetsSpec_volumeClaimTemplates rdf:type owl:ObjectProperty ;
 	 rdfs:domain :StatefulSetSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]PersistentVolumeClaim ;
+    rdf:first :PersistentVolumeClaim ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "statefulsetsSpec_volumeClaimTemplates"@en
@@ -2180,7 +2180,7 @@
 :horizontalpodautoscalersSpec_metrics rdf:type owl:ObjectProperty ;
 	 rdfs:domain :HorizontalPodAutoscalerSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]MetricSpec ;
+    rdf:first :MetricSpec ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "horizontalpodautoscalersSpec_metrics"@en
@@ -2444,7 +2444,7 @@
 :certificatesigningrequestsSpec_groups rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CertificateSigningRequestSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "certificatesigningrequestsSpec_groups"@en
@@ -2467,7 +2467,7 @@
 :certificatesigningrequestsSpec_usages rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CertificateSigningRequestSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "certificatesigningrequestsSpec_usages"@en
@@ -2567,7 +2567,7 @@
 :endpointslices_endpoints rdf:type owl:ObjectProperty ;
 	 rdfs:domain :EndpointSlice;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]Endpoint ;
+    rdf:first :Endpoint ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "endpointslices_endpoints"@en
@@ -2588,7 +2588,7 @@
 :endpointslices_ports rdf:type owl:ObjectProperty ;
 	 rdfs:domain :EndpointSlice;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]EndpointPort ;
+    rdf:first :EndpointPort ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "endpointslices_ports"@en
@@ -2784,7 +2784,7 @@
 :flowschemasSpec_rules rdf:type owl:ObjectProperty ;
 	 rdfs:domain :FlowSchemaSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]PolicyRulesWithSubjects ;
+    rdf:first :PolicyRulesWithSubjects ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "flowschemasSpec_rules"@en
@@ -2957,7 +2957,7 @@
 :ingressesSpec_rules rdf:type owl:ObjectProperty ;
 	 rdfs:domain :IngressSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]IngressRule ;
+    rdf:first :IngressRule ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "ingressesSpec_rules"@en
@@ -2965,7 +2965,7 @@
 :ingressesSpec_tls rdf:type owl:ObjectProperty ;
 	 rdfs:domain :IngressSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]IngressTLS ;
+    rdf:first :IngressTLS ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "ingressesSpec_tls"@en
@@ -3020,7 +3020,7 @@
 :networkpoliciesSpec_egress rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NetworkPolicySpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]NetworkPolicyEgressRule ;
+    rdf:first :NetworkPolicyEgressRule ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "networkpoliciesSpec_egress"@en
@@ -3028,7 +3028,7 @@
 :networkpoliciesSpec_ingress rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NetworkPolicySpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]NetworkPolicyIngressRule ;
+    rdf:first :NetworkPolicyIngressRule ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "networkpoliciesSpec_ingress"@en
@@ -3041,7 +3041,7 @@
 :networkpoliciesSpec_policyTypes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NetworkPolicySpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "networkpoliciesSpec_policyTypes"@en
@@ -3196,7 +3196,7 @@
 :clusterrolebindings_subjects rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ClusterRoleBinding;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]Subject ;
+    rdf:first :Subject ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "clusterrolebindings_subjects"@en
@@ -3245,7 +3245,7 @@
 :clusterroles_rules rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ClusterRole;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]PolicyRule ;
+    rdf:first :PolicyRule ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "clusterroles_rules"@en
@@ -3294,7 +3294,7 @@
 :rolebindings_subjects rdf:type owl:ObjectProperty ;
 	 rdfs:domain :RoleBinding;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]Subject ;
+    rdf:first :Subject ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "rolebindings_subjects"@en
@@ -3337,7 +3337,7 @@
 :roles_rules rdf:type owl:ObjectProperty ;
 	 rdfs:domain :Role;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]PolicyRule ;
+    rdf:first :PolicyRule ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "roles_rules"@en
@@ -3482,7 +3482,7 @@
 :csidriversSpec_tokenRequests rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CSIDriverSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]TokenRequest ;
+    rdf:first :TokenRequest ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "csidriversSpec_tokenRequests"@en
@@ -3490,7 +3490,7 @@
 :csidriversSpec_volumeLifecycleModes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CSIDriverSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "csidriversSpec_volumeLifecycleModes"@en
@@ -3539,7 +3539,7 @@
 :csinodesSpec_drivers rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CSINodeSpec;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]CSINodeDriver ;
+    rdf:first :CSINodeDriver ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "csinodesSpec_drivers"@en
@@ -3620,7 +3620,7 @@
 :storageclasses_allowedTopologies rdf:type owl:ObjectProperty ;
 	 rdfs:domain :StorageClass;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]TopologySelectorTerm ;
+    rdf:first :TopologySelectorTerm ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "storageclasses_allowedTopologies"@en
@@ -3647,7 +3647,7 @@
 :storageclasses_mountOptions rdf:type owl:ObjectProperty ;
 	 rdfs:domain :StorageClass;
 	 rdfs:range :[ rdf:type rdf:Bag ;
-    rdf:first :[]string ;
+    rdf:first :string ;
     rdf:rest rdf:nil
 ];
 	 rdf:label "storageclasses_mountOptions"@en

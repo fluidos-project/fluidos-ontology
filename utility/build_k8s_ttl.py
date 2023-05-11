@@ -91,7 +91,7 @@ def build_property_range(property_spec: list[tuple]) -> str:
 
     if codomain.startswith('<[]'):
         return f'''[ rdf:type rdf:Bag ;
-    rdf:first :{codomain[1:-1]} ;
+    rdf:first :{codomain[3:-1]} ;
     rdf:rest rdf:nil
 ]'''
 
@@ -128,7 +128,7 @@ def main() -> int:
             print(f'### {base_uri}#{property_name}')
             print(f':{property_name} rdf:type owl:ObjectProperty ;')
             print(f'\t rdfs:domain :{resource[-1]};')
-            print(f'\t rdfs:range :{build_property_range(obj_property)};')
+            print(f'\t rdfs:range {build_property_range(obj_property)};')
             print(f'\t rdf:label "{property_name}"@en')
 
         print()
