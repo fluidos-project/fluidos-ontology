@@ -20,9 +20,9 @@ def extract_resources() -> list[tuple]:
     return resources
 
 
-def print_prehamble() -> None:
-    print('''
-@prefix : <https://fluidos.eu/ontologies/> .
+def print_prehamble(base_uri: str, onto_version: str = "0.0.2") -> None:
+    print(f'''
+@prefix : <{base_uri}> .
 @prefix dc: <http://purl.org/dc/elements/1.1> .
 @prefix net: <http://www.w3.org/2007/uwa/context/network.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -35,17 +35,18 @@ def print_prehamble() -> None:
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix hardware: <http://www.w3.org/2007/uwa/context/hardware.owl#> .
 @prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
-@base <https://fluidos.eu/ontologies/> .
+@base <{base_uri}> .
 
 <https://fluidos.eu/ontologies> rdf:type owl:Ontology ;
-                                 owl:versionIRI <https://fluidos.eu/ontologies/1.0.0> ;
+                                 owl:versionIRI <{base_uri}/{onto_version}> ;
                                  <http://purl.org/dc/elements/1.1/creator> "IBM Research Europe" ;
                                  <http://purl.org/dc/elements/1.1/publisher> "IBM Research Europe" ,
                                                                              "This ontology describes a schema for specifying resource and functional element requirements and offering within the FLUIDOS Horizon Europe project" ;
                                  dcterms:created "2023-03-22"^^xsd:date ,
                                                  "FLUIDOS Resource and Functional Requirements Ontology" ;
-                                 owl:versionInfo "0.0.1" .
-                                 ''')
+                                 owl:versionInfo "{onto_version}" .
+
+ ''')
 
 
 def process_documentation(data):
@@ -89,7 +90,7 @@ def build_property_range(property_spec: list[tuple]) -> str:
         return 'xsd:string'
 
     if codomain.startswith('<[]'):
-        return f'''[ rdf:type rdf:List ;
+        return f'''[ rdf:type rdf:Bag ;
     rdf:first :{codomain[1:-1]} ;
     rdf:rest rdf:nil
 ]'''
@@ -97,16 +98,22 @@ def build_property_range(property_spec: list[tuple]) -> str:
     return f':{codomain[1:-1]}'
 
 
+def create_base_uri() -> str:
+    return "https://fluidos.eu/ontologies/kubernetes"
+
+
 def main() -> int:
+    base_uri = create_base_uri()
+
     # all resources
-    print_prehamble()
+    print_prehamble(base_uri)
 
     for resource in extract_resources():
         obj_properties, obj_spec = extract_object_properties(resource[0])
 
         print()
         print()
-        print(f"### https://fludios.eu/ontologies/Kubernetes/{resource[-1]}")
+        print(f"### {base_uri}/{resource[-1]}")
         print(f":{resource[-1]} rdf:type owl:Class ;")
         print(f"\t rdf:subClassOf :KubernetesComponent ;")
         print(f"\t rdf:label \"{resource[-1]}\"@en ;")
@@ -117,14 +124,16 @@ def main() -> int:
 
         for obj_property in obj_properties:
             property_name = build_property_name(resource[0], obj_property[0])
-            print(f'### https://fluidos.eu/ontologies#{property_name}')
+            print()
+            print(f'### {base_uri}#{property_name}')
             print(f':{property_name} rdf:type owl:ObjectProperty ;')
             print(f'\t rdfs:domain :{resource[-1]};')
             print(f'\t rdfs:range :{build_property_range(obj_property)};')
+            print(f'\t rdf:label "{property_name}"@en')
 
         print()
         print()
-        print(f"### https://fludios.eu/ontologies/Kubernetes/{resource[-1]}Spec")
+        print(f"### {base_uri}/{resource[-1]}Spec")
         print(f":{resource[-1]}Spec rdf:type owl:Class ;")
         print(f"\t rdf:subClassOf :KubernetesComponentSpec ;")
         print(f"\t rdf:label \"{resource[-1]}Spec\"@en ;")
@@ -133,10 +142,11 @@ def main() -> int:
 
         for obj_property in obj_spec:
             property_name = build_property_name(resource[0]+"Spec", obj_property[0])
-            print(f'### https://fluidos.eu/ontologies#{property_name}')
+            print(f'### {base_uri}#{property_name}')
             print(f':{property_name} rdf:type owl:ObjectProperty ;')
             print(f'\t rdfs:domain :{resource[-1]}Spec;')
             print(f'\t rdfs:range :{build_property_range(obj_property)};')
+            print(f'\t rdf:label "{property_name}"@en')
 
 
 if __name__ == "__main__":
