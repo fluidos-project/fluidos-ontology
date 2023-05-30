@@ -79,23 +79,30 @@ def build_property_name(resource_name: str, property_name: str) -> str:
     return f"{resource_name}_{property_name}"
 
 
-def build_property_range(property_spec: list[tuple]) -> str:
+def build_property_range(property_spec: list[tuple]) -> tuple[str, bool]:
     codomain = property_spec[1]
 
     if codomain == '<boolean>':
-        return 'xsd:boolean'
+        return 'xsd:boolean', True
     if codomain == '<integer>':
-        return 'xsd:integer'
+        return 'xsd:integer', True
     if codomain == '<string>':
-        return 'xsd:string'
+        return 'xsd:string', True
 
     if codomain.startswith('<[]'):
-        return f'''[ rdf:type rdf:Bag ;
-    rdf:first :{codomain[3:-1]} ;
-    rdf:rest rdf:nil
-]'''
+        return f":{codomain[3:-1]}", False
+#         return f'''[ rdf:type rdf:Bag ;
+#     rdf:first :{codomain[3:-1]} ;
+#     rdf:rest rdf:nil
+# ]'''
+    if codomain.startswith('<map[string][]string'):
+        return 'xsd:string', False
+    if codomain.startswith('<map[string]string>'):
+        return 'xsd:string', False
+    if codomain.startswith('<map[string]'):
+        return f':{codomain[len("<map[string]"):-1]}', False
 
-    return f':{codomain[1:-1]}'
+    return f':{codomain[1:-1]}', True
 
 
 def create_base_uri() -> str:
@@ -120,16 +127,20 @@ def main() -> int:
         print(f"\t :apiVersion \"{resource[2]}\" ;")
         if obj_spec:
             print(f"\t :hasSpec :{resource[-1]}Spec ;")
-        print(f"\t :isNameSpaced {resource[3]} .")
+        print(f"\t :isNameSpaced :{resource[3]} .")
 
         for obj_property in obj_properties:
             property_name = build_property_name(resource[0], obj_property[0])
+            r_type, is_functional = build_property_range(obj_property)
             print()
             print(f'### {base_uri}#{property_name}')
-            print(f':{property_name} rdf:type owl:ObjectProperty ;')
-            print(f'\t rdfs:domain :{resource[-1]};')
-            print(f'\t rdfs:range {build_property_range(obj_property)};')
-            print(f'\t rdf:label "{property_name}"@en')
+            if is_functional:
+                print(f':{property_name} rdf:type owl:FunctionalProperty ;')
+            else:
+                print(f':{property_name} rdf:type owl:ObjectProperty ;')
+            print(f'\t rdfs:domain :{resource[-1]} ;')
+            print(f'\t rdfs:range {r_type} ;')
+            print(f'\t rdf:label "{property_name}"@en .')
 
         print()
         print()
@@ -138,15 +149,21 @@ def main() -> int:
         print(f"\t rdf:subClassOf :KubernetesComponentSpec ;")
         print(f"\t rdf:label \"{resource[-1]}Spec\"@en ;")
         print(f"\t :apiVersion \"{resource[2]}\" ;")
-        print(f"\t :isNameSpaced {resource[3]} .")
+        print(f"\t :isNameSpaced :{resource[3]} .")
 
         for obj_property in obj_spec:
             property_name = build_property_name(resource[0]+"Spec", obj_property[0])
+            r_type, is_functional = build_property_range(obj_property)
+            print()
             print(f'### {base_uri}#{property_name}')
-            print(f':{property_name} rdf:type owl:ObjectProperty ;')
-            print(f'\t rdfs:domain :{resource[-1]}Spec;')
-            print(f'\t rdfs:range {build_property_range(obj_property)};')
-            print(f'\t rdf:label "{property_name}"@en')
+            if is_functional:
+                print(f':{property_name} rdf:type owl:FunctionalProperty ;')
+            else:
+                print(f':{property_name} rdf:type owl:ObjectProperty ;')
+            print(f'### {base_uri}#{property_name}')
+            print(f'\t rdfs:domain :{resource[-1]}Spec ;')
+            print(f'\t rdfs:range {r_type} ;')
+            print(f'\t rdf:label "{property_name}"@en .')
 
 
 if __name__ == "__main__":
