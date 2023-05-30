@@ -1,0 +1,4019 @@
+
+@prefix : <https://fluidos.eu/ontologies/kubernetes> .
+@prefix dc: <http://purl.org/dc/elements/1.1> .
+@prefix net: <http://www.w3.org/2007/uwa/context/network.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hardware: <http://www.w3.org/2007/uwa/context/hardware.owl#> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <https://fluidos.eu/ontologies/kubernetes> .
+
+<https://fluidos.eu/ontologies> rdf:type owl:Ontology ;
+                                 owl:versionIRI <https://fluidos.eu/ontologies/kubernetes/0.0.2> ;
+                                 <http://purl.org/dc/elements/1.1/creator> "IBM Research Europe" ;
+                                 <http://purl.org/dc/elements/1.1/publisher> "IBM Research Europe" ,
+                                                                             "This ontology describes a schema for specifying resource and functional element requirements and offering within the FLUIDOS Horizon Europe project" ;
+                                 dcterms:created "2023-03-22"^^xsd:date ,
+                                                 "FLUIDOS Resource and Functional Requirements Ontology" ;
+                                 owl:versionInfo "0.0.2" .
+
+ 
+
+
+### https://fluidos.eu/ontologies/kubernetes/Binding
+:Binding rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Binding"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :Binding .
+
+
+### https://fluidos.eu/ontologies/kubernetes/BindingSpec
+:BindingSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "BindingSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :Binding .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ComponentStatus
+:ComponentStatus rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ComponentStatus"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#componentstatuses_apiVersion
+:componentstatuses_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ComponentStatus ;
+	 rdfs:range xsd:string ;
+	 rdf:label "componentstatuses_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#componentstatuses_conditions
+:componentstatuses_conditions rdf:type owl:ObjectProperty ;
+	 rdfs:domain :ComponentStatus ;
+	 rdfs:range :ComponentCondition ;
+	 rdf:label "componentstatuses_conditions"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#componentstatuses_kind
+:componentstatuses_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ComponentStatus ;
+	 rdfs:range xsd:string ;
+	 rdf:label "componentstatuses_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#componentstatuses_metadata
+:componentstatuses_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ComponentStatus ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "componentstatuses_metadata"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ComponentStatusSpec
+:ComponentStatusSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ComponentStatusSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :false .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ConfigMap
+:ConfigMap rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ConfigMap"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#configmaps_apiVersion
+:configmaps_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ConfigMap ;
+	 rdfs:range xsd:string ;
+	 rdf:label "configmaps_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#configmaps_binaryData
+:configmaps_binaryData rdf:type owl:ObjectProperty ;
+	 rdfs:domain :ConfigMap ;
+	 rdfs:range xsd:string ;
+	 rdf:label "configmaps_binaryData"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#configmaps_data
+:configmaps_data rdf:type owl:ObjectProperty ;
+	 rdfs:domain :ConfigMap ;
+	 rdfs:range xsd:string ;
+	 rdf:label "configmaps_data"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#configmaps_immutable
+:configmaps_immutable rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ConfigMap ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "configmaps_immutable"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#configmaps_kind
+:configmaps_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ConfigMap ;
+	 rdfs:range xsd:string ;
+	 rdf:label "configmaps_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#configmaps_metadata
+:configmaps_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ConfigMap ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "configmaps_metadata"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ConfigMapSpec
+:ConfigMapSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ConfigMapSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Endpoints
+:Endpoints rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Endpoints"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#endpoints_apiVersion
+:endpoints_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Endpoints ;
+	 rdfs:range xsd:string ;
+	 rdf:label "endpoints_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#endpoints_kind
+:endpoints_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Endpoints ;
+	 rdfs:range xsd:string ;
+	 rdf:label "endpoints_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#endpoints_metadata
+:endpoints_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Endpoints ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "endpoints_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#endpoints_subsets
+:endpoints_subsets rdf:type owl:ObjectProperty ;
+	 rdfs:domain :Endpoints ;
+	 rdfs:range :EndpointSubset ;
+	 rdf:label "endpoints_subsets"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/EndpointsSpec
+:EndpointsSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "EndpointsSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Event
+:Event rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Event"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#events_action
+:events_action rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_action"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_apiVersion
+:events_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_count
+:events_count rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "events_count"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_eventTime
+:events_eventTime rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_eventTime"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_firstTimestamp
+:events_firstTimestamp rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_firstTimestamp"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_involvedObject
+:events_involvedObject rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :ObjectReference ;
+	 rdf:label "events_involvedObject"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_kind
+:events_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_lastTimestamp
+:events_lastTimestamp rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_lastTimestamp"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_message
+:events_message rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_message"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_metadata
+:events_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "events_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_reason
+:events_reason rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_reason"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_related
+:events_related rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :ObjectReference ;
+	 rdf:label "events_related"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_reportingComponent
+:events_reportingComponent rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_reportingComponent"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_reportingInstance
+:events_reportingInstance rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_reportingInstance"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_series
+:events_series rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :EventSeries ;
+	 rdf:label "events_series"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_source
+:events_source rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :EventSource ;
+	 rdf:label "events_source"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_type
+:events_type rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_type"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/EventSpec
+:EventSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "EventSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+
+### https://fluidos.eu/ontologies/kubernetes/LimitRange
+:LimitRange rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "LimitRange"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :LimitRangeSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#limitranges_apiVersion
+:limitranges_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :LimitRange ;
+	 rdfs:range xsd:string ;
+	 rdf:label "limitranges_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#limitranges_kind
+:limitranges_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :LimitRange ;
+	 rdfs:range xsd:string ;
+	 rdf:label "limitranges_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#limitranges_metadata
+:limitranges_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :LimitRange ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "limitranges_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#limitranges_spec
+:limitranges_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :LimitRange ;
+	 rdfs:range :LimitRangeSpec ;
+	 rdf:label "limitranges_spec"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/LimitRangeSpec
+:LimitRangeSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "LimitRangeSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#limitrangesSpec_limits
+:limitrangesSpec_limits rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#limitrangesSpec_limits
+	 rdfs:domain :LimitRangeSpec ;
+	 rdfs:range :LimitRangeItem ;
+	 rdf:label "limitrangesSpec_limits"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Namespace
+:Namespace rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Namespace"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :NamespaceSpec ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#namespaces_apiVersion
+:namespaces_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Namespace ;
+	 rdfs:range xsd:string ;
+	 rdf:label "namespaces_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#namespaces_kind
+:namespaces_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Namespace ;
+	 rdfs:range xsd:string ;
+	 rdf:label "namespaces_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#namespaces_metadata
+:namespaces_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Namespace ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "namespaces_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#namespaces_spec
+:namespaces_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Namespace ;
+	 rdfs:range :NamespaceSpec ;
+	 rdf:label "namespaces_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#namespaces_status
+:namespaces_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Namespace ;
+	 rdfs:range :NamespaceStatus ;
+	 rdf:label "namespaces_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/NamespaceSpec
+:NamespaceSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "NamespaceSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#namespacesSpec_finalizers
+:namespacesSpec_finalizers rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#namespacesSpec_finalizers
+	 rdfs:domain :NamespaceSpec ;
+	 rdfs:range :string ;
+	 rdf:label "namespacesSpec_finalizers"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Node
+:Node rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Node"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :NodeSpec ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#nodes_apiVersion
+:nodes_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Node ;
+	 rdfs:range xsd:string ;
+	 rdf:label "nodes_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodes_kind
+:nodes_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Node ;
+	 rdfs:range xsd:string ;
+	 rdf:label "nodes_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodes_metadata
+:nodes_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Node ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "nodes_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodes_spec
+:nodes_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Node ;
+	 rdfs:range :NodeSpec ;
+	 rdf:label "nodes_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodes_status
+:nodes_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Node ;
+	 rdfs:range :NodeStatus ;
+	 rdf:label "nodes_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/NodeSpec
+:NodeSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "NodeSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_configSource
+:nodesSpec_configSource rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_configSource
+	 rdfs:domain :NodeSpec ;
+	 rdfs:range :NodeConfigSource ;
+	 rdf:label "nodesSpec_configSource"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_externalID
+:nodesSpec_externalID rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_externalID
+	 rdfs:domain :NodeSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "nodesSpec_externalID"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_podCIDR
+:nodesSpec_podCIDR rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_podCIDR
+	 rdfs:domain :NodeSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "nodesSpec_podCIDR"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_podCIDRs
+:nodesSpec_podCIDRs rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_podCIDRs
+	 rdfs:domain :NodeSpec ;
+	 rdfs:range :string ;
+	 rdf:label "nodesSpec_podCIDRs"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_providerID
+:nodesSpec_providerID rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_providerID
+	 rdfs:domain :NodeSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "nodesSpec_providerID"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_taints
+:nodesSpec_taints rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_taints
+	 rdfs:domain :NodeSpec ;
+	 rdfs:range :Taint ;
+	 rdf:label "nodesSpec_taints"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_unschedulable
+:nodesSpec_unschedulable rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#nodesSpec_unschedulable
+	 rdfs:domain :NodeSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "nodesSpec_unschedulable"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PersistentVolumeClaim
+:PersistentVolumeClaim rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "PersistentVolumeClaim"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :PersistentVolumeClaimSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaims_apiVersion
+:persistentvolumeclaims_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolumeClaim ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumeclaims_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaims_kind
+:persistentvolumeclaims_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolumeClaim ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumeclaims_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaims_metadata
+:persistentvolumeclaims_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolumeClaim ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "persistentvolumeclaims_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaims_spec
+:persistentvolumeclaims_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolumeClaim ;
+	 rdfs:range :PersistentVolumeClaimSpec ;
+	 rdf:label "persistentvolumeclaims_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaims_status
+:persistentvolumeclaims_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolumeClaim ;
+	 rdfs:range :PersistentVolumeClaimStatus ;
+	 rdf:label "persistentvolumeclaims_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PersistentVolumeClaimSpec
+:PersistentVolumeClaimSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "PersistentVolumeClaimSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_accessModes
+:persistentvolumeclaimsSpec_accessModes rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_accessModes
+	 rdfs:domain :PersistentVolumeClaimSpec ;
+	 rdfs:range :string ;
+	 rdf:label "persistentvolumeclaimsSpec_accessModes"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_dataSource
+:persistentvolumeclaimsSpec_dataSource rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_dataSource
+	 rdfs:domain :PersistentVolumeClaimSpec ;
+	 rdfs:range :TypedLocalObjectReference ;
+	 rdf:label "persistentvolumeclaimsSpec_dataSource"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_dataSourceRef
+:persistentvolumeclaimsSpec_dataSourceRef rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_dataSourceRef
+	 rdfs:domain :PersistentVolumeClaimSpec ;
+	 rdfs:range :TypedLocalObjectReference ;
+	 rdf:label "persistentvolumeclaimsSpec_dataSourceRef"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_resources
+:persistentvolumeclaimsSpec_resources rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_resources
+	 rdfs:domain :PersistentVolumeClaimSpec ;
+	 rdfs:range :ResourceRequirements ;
+	 rdf:label "persistentvolumeclaimsSpec_resources"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_selector
+:persistentvolumeclaimsSpec_selector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_selector
+	 rdfs:domain :PersistentVolumeClaimSpec ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "persistentvolumeclaimsSpec_selector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_storageClassName
+:persistentvolumeclaimsSpec_storageClassName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_storageClassName
+	 rdfs:domain :PersistentVolumeClaimSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumeclaimsSpec_storageClassName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_volumeMode
+:persistentvolumeclaimsSpec_volumeMode rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_volumeMode
+	 rdfs:domain :PersistentVolumeClaimSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumeclaimsSpec_volumeMode"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_volumeName
+:persistentvolumeclaimsSpec_volumeName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumeclaimsSpec_volumeName
+	 rdfs:domain :PersistentVolumeClaimSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumeclaimsSpec_volumeName"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PersistentVolume
+:PersistentVolume rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "PersistentVolume"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :PersistentVolumeSpec ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumes_apiVersion
+:persistentvolumes_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolume ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumes_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumes_kind
+:persistentvolumes_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolume ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumes_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumes_metadata
+:persistentvolumes_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolume ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "persistentvolumes_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumes_spec
+:persistentvolumes_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolume ;
+	 rdfs:range :PersistentVolumeSpec ;
+	 rdf:label "persistentvolumes_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumes_status
+:persistentvolumes_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PersistentVolume ;
+	 rdfs:range :PersistentVolumeStatus ;
+	 rdf:label "persistentvolumes_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PersistentVolumeSpec
+:PersistentVolumeSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "PersistentVolumeSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_accessModes
+:persistentvolumesSpec_accessModes rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_accessModes
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :string ;
+	 rdf:label "persistentvolumesSpec_accessModes"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_awsElasticBlockStore
+:persistentvolumesSpec_awsElasticBlockStore rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_awsElasticBlockStore
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :AWSElasticBlockStoreVolumeSource ;
+	 rdf:label "persistentvolumesSpec_awsElasticBlockStore"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_azureDisk
+:persistentvolumesSpec_azureDisk rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_azureDisk
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :AzureDiskVolumeSource ;
+	 rdf:label "persistentvolumesSpec_azureDisk"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_azureFile
+:persistentvolumesSpec_azureFile rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_azureFile
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :AzureFilePersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_azureFile"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_capacity
+:persistentvolumesSpec_capacity rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_capacity
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :Quantity ;
+	 rdf:label "persistentvolumesSpec_capacity"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_cephfs
+:persistentvolumesSpec_cephfs rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_cephfs
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :CephFSPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_cephfs"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_cinder
+:persistentvolumesSpec_cinder rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_cinder
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :CinderPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_cinder"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_claimRef
+:persistentvolumesSpec_claimRef rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_claimRef
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :ObjectReference ;
+	 rdf:label "persistentvolumesSpec_claimRef"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_csi
+:persistentvolumesSpec_csi rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_csi
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :CSIPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_csi"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_fc
+:persistentvolumesSpec_fc rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_fc
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :FCVolumeSource ;
+	 rdf:label "persistentvolumesSpec_fc"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_flexVolume
+:persistentvolumesSpec_flexVolume rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_flexVolume
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :FlexPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_flexVolume"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_flocker
+:persistentvolumesSpec_flocker rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_flocker
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :FlockerVolumeSource ;
+	 rdf:label "persistentvolumesSpec_flocker"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_gcePersistentDisk
+:persistentvolumesSpec_gcePersistentDisk rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_gcePersistentDisk
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :GCEPersistentDiskVolumeSource ;
+	 rdf:label "persistentvolumesSpec_gcePersistentDisk"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_glusterfs
+:persistentvolumesSpec_glusterfs rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_glusterfs
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :GlusterfsPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_glusterfs"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_hostPath
+:persistentvolumesSpec_hostPath rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_hostPath
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :HostPathVolumeSource ;
+	 rdf:label "persistentvolumesSpec_hostPath"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_iscsi
+:persistentvolumesSpec_iscsi rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_iscsi
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :ISCSIPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_iscsi"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_local
+:persistentvolumesSpec_local rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_local
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :LocalVolumeSource ;
+	 rdf:label "persistentvolumesSpec_local"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_mountOptions
+:persistentvolumesSpec_mountOptions rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_mountOptions
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :string ;
+	 rdf:label "persistentvolumesSpec_mountOptions"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_nfs
+:persistentvolumesSpec_nfs rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_nfs
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :NFSVolumeSource ;
+	 rdf:label "persistentvolumesSpec_nfs"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_nodeAffinity
+:persistentvolumesSpec_nodeAffinity rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_nodeAffinity
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :VolumeNodeAffinity ;
+	 rdf:label "persistentvolumesSpec_nodeAffinity"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_persistentVolumeReclaimPolicy
+:persistentvolumesSpec_persistentVolumeReclaimPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_persistentVolumeReclaimPolicy
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumesSpec_persistentVolumeReclaimPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_photonPersistentDisk
+:persistentvolumesSpec_photonPersistentDisk rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_photonPersistentDisk
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :PhotonPersistentDiskVolumeSource ;
+	 rdf:label "persistentvolumesSpec_photonPersistentDisk"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_portworxVolume
+:persistentvolumesSpec_portworxVolume rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_portworxVolume
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :PortworxVolumeSource ;
+	 rdf:label "persistentvolumesSpec_portworxVolume"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_quobyte
+:persistentvolumesSpec_quobyte rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_quobyte
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :QuobyteVolumeSource ;
+	 rdf:label "persistentvolumesSpec_quobyte"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_rbd
+:persistentvolumesSpec_rbd rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_rbd
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :RBDPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_rbd"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_scaleIO
+:persistentvolumesSpec_scaleIO rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_scaleIO
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :ScaleIOPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_scaleIO"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_storageClassName
+:persistentvolumesSpec_storageClassName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_storageClassName
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumesSpec_storageClassName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_storageos
+:persistentvolumesSpec_storageos rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_storageos
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :StorageOSPersistentVolumeSource ;
+	 rdf:label "persistentvolumesSpec_storageos"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_volumeMode
+:persistentvolumesSpec_volumeMode rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_volumeMode
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "persistentvolumesSpec_volumeMode"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_vsphereVolume
+:persistentvolumesSpec_vsphereVolume rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#persistentvolumesSpec_vsphereVolume
+	 rdfs:domain :PersistentVolumeSpec ;
+	 rdfs:range :VsphereVirtualDiskVolumeSource ;
+	 rdf:label "persistentvolumesSpec_vsphereVolume"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Pod
+:Pod rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Pod"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :PodSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#pods_apiVersion
+:pods_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Pod ;
+	 rdfs:range xsd:string ;
+	 rdf:label "pods_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#pods_kind
+:pods_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Pod ;
+	 rdfs:range xsd:string ;
+	 rdf:label "pods_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#pods_metadata
+:pods_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Pod ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "pods_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#pods_spec
+:pods_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Pod ;
+	 rdfs:range :PodSpec ;
+	 rdf:label "pods_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#pods_status
+:pods_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Pod ;
+	 rdfs:range :PodStatus ;
+	 rdf:label "pods_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PodSpec
+:PodSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "PodSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_activeDeadlineSeconds
+:podsSpec_activeDeadlineSeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_activeDeadlineSeconds
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "podsSpec_activeDeadlineSeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_affinity
+:podsSpec_affinity rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_affinity
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :Affinity ;
+	 rdf:label "podsSpec_affinity"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_automountServiceAccountToken
+:podsSpec_automountServiceAccountToken rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_automountServiceAccountToken
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "podsSpec_automountServiceAccountToken"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_containers
+:podsSpec_containers rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_containers
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :Container ;
+	 rdf:label "podsSpec_containers"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_dnsConfig
+:podsSpec_dnsConfig rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_dnsConfig
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :PodDNSConfig ;
+	 rdf:label "podsSpec_dnsConfig"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_dnsPolicy
+:podsSpec_dnsPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_dnsPolicy
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_dnsPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_enableServiceLinks
+:podsSpec_enableServiceLinks rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_enableServiceLinks
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "podsSpec_enableServiceLinks"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_ephemeralContainers
+:podsSpec_ephemeralContainers rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_ephemeralContainers
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :EphemeralContainer ;
+	 rdf:label "podsSpec_ephemeralContainers"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostAliases
+:podsSpec_hostAliases rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostAliases
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :HostAlias ;
+	 rdf:label "podsSpec_hostAliases"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostIPC
+:podsSpec_hostIPC rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostIPC
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "podsSpec_hostIPC"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostNetwork
+:podsSpec_hostNetwork rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostNetwork
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "podsSpec_hostNetwork"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostPID
+:podsSpec_hostPID rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostPID
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "podsSpec_hostPID"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostUsers
+:podsSpec_hostUsers rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostUsers
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "podsSpec_hostUsers"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostname
+:podsSpec_hostname rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_hostname
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_hostname"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_imagePullSecrets
+:podsSpec_imagePullSecrets rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_imagePullSecrets
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :LocalObjectReference ;
+	 rdf:label "podsSpec_imagePullSecrets"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_initContainers
+:podsSpec_initContainers rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_initContainers
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :Container ;
+	 rdf:label "podsSpec_initContainers"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_nodeName
+:podsSpec_nodeName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_nodeName
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_nodeName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_nodeSelector
+:podsSpec_nodeSelector rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_nodeSelector
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_nodeSelector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_os
+:podsSpec_os rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_os
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :PodOS ;
+	 rdf:label "podsSpec_os"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_overhead
+:podsSpec_overhead rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_overhead
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :Quantity ;
+	 rdf:label "podsSpec_overhead"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_preemptionPolicy
+:podsSpec_preemptionPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_preemptionPolicy
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_preemptionPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_priority
+:podsSpec_priority rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_priority
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "podsSpec_priority"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_priorityClassName
+:podsSpec_priorityClassName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_priorityClassName
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_priorityClassName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_readinessGates
+:podsSpec_readinessGates rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_readinessGates
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :PodReadinessGate ;
+	 rdf:label "podsSpec_readinessGates"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_restartPolicy
+:podsSpec_restartPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_restartPolicy
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_restartPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_runtimeClassName
+:podsSpec_runtimeClassName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_runtimeClassName
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_runtimeClassName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_schedulerName
+:podsSpec_schedulerName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_schedulerName
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_schedulerName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_securityContext
+:podsSpec_securityContext rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_securityContext
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :PodSecurityContext ;
+	 rdf:label "podsSpec_securityContext"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_serviceAccount
+:podsSpec_serviceAccount rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_serviceAccount
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_serviceAccount"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_serviceAccountName
+:podsSpec_serviceAccountName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_serviceAccountName
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_serviceAccountName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_setHostnameAsFQDN
+:podsSpec_setHostnameAsFQDN rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_setHostnameAsFQDN
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "podsSpec_setHostnameAsFQDN"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_shareProcessNamespace
+:podsSpec_shareProcessNamespace rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_shareProcessNamespace
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "podsSpec_shareProcessNamespace"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_subdomain
+:podsSpec_subdomain rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_subdomain
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podsSpec_subdomain"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_terminationGracePeriodSeconds
+:podsSpec_terminationGracePeriodSeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_terminationGracePeriodSeconds
+	 rdfs:domain :PodSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "podsSpec_terminationGracePeriodSeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_tolerations
+:podsSpec_tolerations rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_tolerations
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :Toleration ;
+	 rdf:label "podsSpec_tolerations"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_topologySpreadConstraints
+:podsSpec_topologySpreadConstraints rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_topologySpreadConstraints
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :TopologySpreadConstraint ;
+	 rdf:label "podsSpec_topologySpreadConstraints"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_volumes
+:podsSpec_volumes rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#podsSpec_volumes
+	 rdfs:domain :PodSpec ;
+	 rdfs:range :Volume ;
+	 rdf:label "podsSpec_volumes"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PodTemplate
+:PodTemplate rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "PodTemplate"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :PodTemplate .
+
+### https://fluidos.eu/ontologies/kubernetes#podtemplates_apiVersion
+:podtemplates_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodTemplate ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podtemplates_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podtemplates_kind
+:podtemplates_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodTemplate ;
+	 rdfs:range xsd:string ;
+	 rdf:label "podtemplates_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podtemplates_metadata
+:podtemplates_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodTemplate ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "podtemplates_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#podtemplates_template
+:podtemplates_template rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodTemplate ;
+	 rdfs:range :PodTemplateSpec ;
+	 rdf:label "podtemplates_template"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PodTemplateSpec
+:PodTemplateSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "PodTemplateSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :PodTemplate .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ReplicationController
+:ReplicationController rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ReplicationController"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :ReplicationControllerSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollers_apiVersion
+:replicationcontrollers_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicationController ;
+	 rdfs:range xsd:string ;
+	 rdf:label "replicationcontrollers_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollers_kind
+:replicationcontrollers_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicationController ;
+	 rdfs:range xsd:string ;
+	 rdf:label "replicationcontrollers_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollers_metadata
+:replicationcontrollers_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicationController ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "replicationcontrollers_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollers_spec
+:replicationcontrollers_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicationController ;
+	 rdfs:range :ReplicationControllerSpec ;
+	 rdf:label "replicationcontrollers_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollers_status
+:replicationcontrollers_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicationController ;
+	 rdfs:range :ReplicationControllerStatus ;
+	 rdf:label "replicationcontrollers_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ReplicationControllerSpec
+:ReplicationControllerSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ReplicationControllerSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollersSpec_minReadySeconds
+:replicationcontrollersSpec_minReadySeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollersSpec_minReadySeconds
+	 rdfs:domain :ReplicationControllerSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "replicationcontrollersSpec_minReadySeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollersSpec_replicas
+:replicationcontrollersSpec_replicas rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollersSpec_replicas
+	 rdfs:domain :ReplicationControllerSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "replicationcontrollersSpec_replicas"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollersSpec_selector
+:replicationcontrollersSpec_selector rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollersSpec_selector
+	 rdfs:domain :ReplicationControllerSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "replicationcontrollersSpec_selector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollersSpec_template
+:replicationcontrollersSpec_template rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#replicationcontrollersSpec_template
+	 rdfs:domain :ReplicationControllerSpec ;
+	 rdfs:range :PodTemplateSpec ;
+	 rdf:label "replicationcontrollersSpec_template"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ResourceQuota
+:ResourceQuota rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ResourceQuota"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :ResourceQuotaSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#resourcequotas_apiVersion
+:resourcequotas_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ResourceQuota ;
+	 rdfs:range xsd:string ;
+	 rdf:label "resourcequotas_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#resourcequotas_kind
+:resourcequotas_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ResourceQuota ;
+	 rdfs:range xsd:string ;
+	 rdf:label "resourcequotas_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#resourcequotas_metadata
+:resourcequotas_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ResourceQuota ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "resourcequotas_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#resourcequotas_spec
+:resourcequotas_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ResourceQuota ;
+	 rdfs:range :ResourceQuotaSpec ;
+	 rdf:label "resourcequotas_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#resourcequotas_status
+:resourcequotas_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ResourceQuota ;
+	 rdfs:range :ResourceQuotaStatus ;
+	 rdf:label "resourcequotas_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ResourceQuotaSpec
+:ResourceQuotaSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ResourceQuotaSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#resourcequotasSpec_hard
+:resourcequotasSpec_hard rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#resourcequotasSpec_hard
+	 rdfs:domain :ResourceQuotaSpec ;
+	 rdfs:range :Quantity ;
+	 rdf:label "resourcequotasSpec_hard"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#resourcequotasSpec_scopeSelector
+:resourcequotasSpec_scopeSelector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#resourcequotasSpec_scopeSelector
+	 rdfs:domain :ResourceQuotaSpec ;
+	 rdfs:range :ScopeSelector ;
+	 rdf:label "resourcequotasSpec_scopeSelector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#resourcequotasSpec_scopes
+:resourcequotasSpec_scopes rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#resourcequotasSpec_scopes
+	 rdfs:domain :ResourceQuotaSpec ;
+	 rdfs:range :string ;
+	 rdf:label "resourcequotasSpec_scopes"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Secret
+:Secret rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Secret"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :Secret .
+
+### https://fluidos.eu/ontologies/kubernetes#secrets_apiVersion
+:secrets_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Secret ;
+	 rdfs:range xsd:string ;
+	 rdf:label "secrets_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#secrets_data
+:secrets_data rdf:type owl:ObjectProperty ;
+	 rdfs:domain :Secret ;
+	 rdfs:range xsd:string ;
+	 rdf:label "secrets_data"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#secrets_immutable
+:secrets_immutable rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Secret ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "secrets_immutable"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#secrets_kind
+:secrets_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Secret ;
+	 rdfs:range xsd:string ;
+	 rdf:label "secrets_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#secrets_metadata
+:secrets_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Secret ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "secrets_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#secrets_stringData
+:secrets_stringData rdf:type owl:ObjectProperty ;
+	 rdfs:domain :Secret ;
+	 rdfs:range xsd:string ;
+	 rdf:label "secrets_stringData"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#secrets_type
+:secrets_type rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Secret ;
+	 rdfs:range xsd:string ;
+	 rdf:label "secrets_type"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/SecretSpec
+:SecretSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "SecretSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :Secret .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ServiceAccount
+:ServiceAccount rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ServiceAccount"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#serviceaccounts_apiVersion
+:serviceaccounts_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ServiceAccount ;
+	 rdfs:range xsd:string ;
+	 rdf:label "serviceaccounts_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#serviceaccounts_automountServiceAccountToken
+:serviceaccounts_automountServiceAccountToken rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ServiceAccount ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "serviceaccounts_automountServiceAccountToken"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#serviceaccounts_imagePullSecrets
+:serviceaccounts_imagePullSecrets rdf:type owl:ObjectProperty ;
+	 rdfs:domain :ServiceAccount ;
+	 rdfs:range :LocalObjectReference ;
+	 rdf:label "serviceaccounts_imagePullSecrets"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#serviceaccounts_kind
+:serviceaccounts_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ServiceAccount ;
+	 rdfs:range xsd:string ;
+	 rdf:label "serviceaccounts_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#serviceaccounts_metadata
+:serviceaccounts_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ServiceAccount ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "serviceaccounts_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#serviceaccounts_secrets
+:serviceaccounts_secrets rdf:type owl:ObjectProperty ;
+	 rdfs:domain :ServiceAccount ;
+	 rdfs:range :ObjectReference ;
+	 rdf:label "serviceaccounts_secrets"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ServiceAccountSpec
+:ServiceAccountSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ServiceAccountSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Service
+:Service rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Service"@en ;
+	 :apiVersion "v1" ;
+	 :hasSpec :ServiceSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#services_apiVersion
+:services_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Service ;
+	 rdfs:range xsd:string ;
+	 rdf:label "services_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#services_kind
+:services_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Service ;
+	 rdfs:range xsd:string ;
+	 rdf:label "services_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#services_metadata
+:services_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Service ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "services_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#services_spec
+:services_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Service ;
+	 rdfs:range :ServiceSpec ;
+	 rdf:label "services_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#services_status
+:services_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Service ;
+	 rdfs:range :ServiceStatus ;
+	 rdf:label "services_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ServiceSpec
+:ServiceSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ServiceSpec"@en ;
+	 :apiVersion "v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_allocateLoadBalancerNodePorts
+:servicesSpec_allocateLoadBalancerNodePorts rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_allocateLoadBalancerNodePorts
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "servicesSpec_allocateLoadBalancerNodePorts"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_clusterIP
+:servicesSpec_clusterIP rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_clusterIP
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_clusterIP"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_clusterIPs
+:servicesSpec_clusterIPs rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_clusterIPs
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range :string ;
+	 rdf:label "servicesSpec_clusterIPs"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_externalIPs
+:servicesSpec_externalIPs rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_externalIPs
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range :string ;
+	 rdf:label "servicesSpec_externalIPs"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_externalName
+:servicesSpec_externalName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_externalName
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_externalName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_externalTrafficPolicy
+:servicesSpec_externalTrafficPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_externalTrafficPolicy
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_externalTrafficPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_healthCheckNodePort
+:servicesSpec_healthCheckNodePort rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_healthCheckNodePort
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "servicesSpec_healthCheckNodePort"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_internalTrafficPolicy
+:servicesSpec_internalTrafficPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_internalTrafficPolicy
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_internalTrafficPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_ipFamilies
+:servicesSpec_ipFamilies rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_ipFamilies
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range :string ;
+	 rdf:label "servicesSpec_ipFamilies"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_ipFamilyPolicy
+:servicesSpec_ipFamilyPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_ipFamilyPolicy
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_ipFamilyPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_loadBalancerClass
+:servicesSpec_loadBalancerClass rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_loadBalancerClass
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_loadBalancerClass"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_loadBalancerIP
+:servicesSpec_loadBalancerIP rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_loadBalancerIP
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_loadBalancerIP"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_loadBalancerSourceRanges
+:servicesSpec_loadBalancerSourceRanges rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_loadBalancerSourceRanges
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range :string ;
+	 rdf:label "servicesSpec_loadBalancerSourceRanges"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_ports
+:servicesSpec_ports rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_ports
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range :ServicePort ;
+	 rdf:label "servicesSpec_ports"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_publishNotReadyAddresses
+:servicesSpec_publishNotReadyAddresses rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_publishNotReadyAddresses
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "servicesSpec_publishNotReadyAddresses"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_selector
+:servicesSpec_selector rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_selector
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_selector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_sessionAffinity
+:servicesSpec_sessionAffinity rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_sessionAffinity
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_sessionAffinity"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_sessionAffinityConfig
+:servicesSpec_sessionAffinityConfig rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_sessionAffinityConfig
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range :SessionAffinityConfig ;
+	 rdf:label "servicesSpec_sessionAffinityConfig"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_type
+:servicesSpec_type rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#servicesSpec_type
+	 rdfs:domain :ServiceSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "servicesSpec_type"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/MutatingWebhookConfiguration
+:MutatingWebhookConfiguration rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "MutatingWebhookConfiguration"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :MutatingWebhookConfiguration .
+
+### https://fluidos.eu/ontologies/kubernetes#mutatingwebhookconfigurations_apiVersion
+:mutatingwebhookconfigurations_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :MutatingWebhookConfiguration ;
+	 rdfs:range xsd:string ;
+	 rdf:label "mutatingwebhookconfigurations_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#mutatingwebhookconfigurations_kind
+:mutatingwebhookconfigurations_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :MutatingWebhookConfiguration ;
+	 rdfs:range xsd:string ;
+	 rdf:label "mutatingwebhookconfigurations_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#mutatingwebhookconfigurations_metadata
+:mutatingwebhookconfigurations_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :MutatingWebhookConfiguration ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "mutatingwebhookconfigurations_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#mutatingwebhookconfigurations_webhooks
+:mutatingwebhookconfigurations_webhooks rdf:type owl:ObjectProperty ;
+	 rdfs:domain :MutatingWebhookConfiguration ;
+	 rdfs:range :MutatingWebhook ;
+	 rdf:label "mutatingwebhookconfigurations_webhooks"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/MutatingWebhookConfigurationSpec
+:MutatingWebhookConfigurationSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "MutatingWebhookConfigurationSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :MutatingWebhookConfiguration .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ValidatingWebhookConfiguration
+:ValidatingWebhookConfiguration rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ValidatingWebhookConfiguration"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :ValidatingWebhookConfiguration .
+
+### https://fluidos.eu/ontologies/kubernetes#validatingwebhookconfigurations_apiVersion
+:validatingwebhookconfigurations_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ValidatingWebhookConfiguration ;
+	 rdfs:range xsd:string ;
+	 rdf:label "validatingwebhookconfigurations_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#validatingwebhookconfigurations_kind
+:validatingwebhookconfigurations_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ValidatingWebhookConfiguration ;
+	 rdfs:range xsd:string ;
+	 rdf:label "validatingwebhookconfigurations_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#validatingwebhookconfigurations_metadata
+:validatingwebhookconfigurations_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ValidatingWebhookConfiguration ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "validatingwebhookconfigurations_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#validatingwebhookconfigurations_webhooks
+:validatingwebhookconfigurations_webhooks rdf:type owl:ObjectProperty ;
+	 rdfs:domain :ValidatingWebhookConfiguration ;
+	 rdfs:range :ValidatingWebhook ;
+	 rdf:label "validatingwebhookconfigurations_webhooks"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ValidatingWebhookConfigurationSpec
+:ValidatingWebhookConfigurationSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ValidatingWebhookConfigurationSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :ValidatingWebhookConfiguration .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CustomResourceDefinition
+:CustomResourceDefinition rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "CustomResourceDefinition"@en ;
+	 :apiVersion "apiextensions.k8s.io/v1" ;
+	 :hasSpec :CustomResourceDefinitionSpec ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitions_apiVersion
+:customresourcedefinitions_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CustomResourceDefinition ;
+	 rdfs:range xsd:string ;
+	 rdf:label "customresourcedefinitions_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitions_kind
+:customresourcedefinitions_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CustomResourceDefinition ;
+	 rdfs:range xsd:string ;
+	 rdf:label "customresourcedefinitions_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitions_metadata
+:customresourcedefinitions_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CustomResourceDefinition ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "customresourcedefinitions_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitions_spec
+:customresourcedefinitions_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CustomResourceDefinition ;
+	 rdfs:range :CustomResourceDefinitionSpec ;
+	 rdf:label "customresourcedefinitions_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitions_status
+:customresourcedefinitions_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CustomResourceDefinition ;
+	 rdfs:range :CustomResourceDefinitionStatus ;
+	 rdf:label "customresourcedefinitions_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CustomResourceDefinitionSpec
+:CustomResourceDefinitionSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "CustomResourceDefinitionSpec"@en ;
+	 :apiVersion "apiextensions.k8s.io/v1" ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_conversion
+:customresourcedefinitionsSpec_conversion rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_conversion
+	 rdfs:domain :CustomResourceDefinitionSpec ;
+	 rdfs:range :CustomResourceConversion ;
+	 rdf:label "customresourcedefinitionsSpec_conversion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_group
+:customresourcedefinitionsSpec_group rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_group
+	 rdfs:domain :CustomResourceDefinitionSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "customresourcedefinitionsSpec_group"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_names
+:customresourcedefinitionsSpec_names rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_names
+	 rdfs:domain :CustomResourceDefinitionSpec ;
+	 rdfs:range :CustomResourceDefinitionNames ;
+	 rdf:label "customresourcedefinitionsSpec_names"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_preserveUnknownFields
+:customresourcedefinitionsSpec_preserveUnknownFields rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_preserveUnknownFields
+	 rdfs:domain :CustomResourceDefinitionSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "customresourcedefinitionsSpec_preserveUnknownFields"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_scope
+:customresourcedefinitionsSpec_scope rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_scope
+	 rdfs:domain :CustomResourceDefinitionSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "customresourcedefinitionsSpec_scope"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_versions
+:customresourcedefinitionsSpec_versions rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#customresourcedefinitionsSpec_versions
+	 rdfs:domain :CustomResourceDefinitionSpec ;
+	 rdfs:range :CustomResourceDefinitionVersion ;
+	 rdf:label "customresourcedefinitionsSpec_versions"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/APIService
+:APIService rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "APIService"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :APIService .
+
+
+### https://fluidos.eu/ontologies/kubernetes/APIServiceSpec
+:APIServiceSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "APIServiceSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :APIService .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ControllerRevision
+:ControllerRevision rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ControllerRevision"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :ControllerRevision .
+
+### https://fluidos.eu/ontologies/kubernetes#controllerrevisions_apiVersion
+:controllerrevisions_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ControllerRevision ;
+	 rdfs:range xsd:string ;
+	 rdf:label "controllerrevisions_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#controllerrevisions_data
+:controllerrevisions_data rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ControllerRevision ;
+	 rdfs:range :RawExtension ;
+	 rdf:label "controllerrevisions_data"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#controllerrevisions_kind
+:controllerrevisions_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ControllerRevision ;
+	 rdfs:range xsd:string ;
+	 rdf:label "controllerrevisions_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#controllerrevisions_metadata
+:controllerrevisions_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ControllerRevision ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "controllerrevisions_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#controllerrevisions_revision
+:controllerrevisions_revision rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ControllerRevision ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "controllerrevisions_revision"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ControllerRevisionSpec
+:ControllerRevisionSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ControllerRevisionSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :ControllerRevision .
+
+
+### https://fluidos.eu/ontologies/kubernetes/DaemonSet
+:DaemonSet rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "DaemonSet"@en ;
+	 :apiVersion "apps/v1" ;
+	 :hasSpec :DaemonSetSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsets_apiVersion
+:daemonsets_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :DaemonSet ;
+	 rdfs:range xsd:string ;
+	 rdf:label "daemonsets_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsets_kind
+:daemonsets_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :DaemonSet ;
+	 rdfs:range xsd:string ;
+	 rdf:label "daemonsets_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsets_metadata
+:daemonsets_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :DaemonSet ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "daemonsets_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsets_spec
+:daemonsets_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :DaemonSet ;
+	 rdfs:range :DaemonSetSpec ;
+	 rdf:label "daemonsets_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsets_status
+:daemonsets_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :DaemonSet ;
+	 rdfs:range :DaemonSetStatus ;
+	 rdf:label "daemonsets_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/DaemonSetSpec
+:DaemonSetSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "DaemonSetSpec"@en ;
+	 :apiVersion "apps/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_minReadySeconds
+:daemonsetsSpec_minReadySeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_minReadySeconds
+	 rdfs:domain :DaemonSetSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "daemonsetsSpec_minReadySeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_revisionHistoryLimit
+:daemonsetsSpec_revisionHistoryLimit rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_revisionHistoryLimit
+	 rdfs:domain :DaemonSetSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "daemonsetsSpec_revisionHistoryLimit"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_selector
+:daemonsetsSpec_selector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_selector
+	 rdfs:domain :DaemonSetSpec ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "daemonsetsSpec_selector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_template
+:daemonsetsSpec_template rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_template
+	 rdfs:domain :DaemonSetSpec ;
+	 rdfs:range :PodTemplateSpec ;
+	 rdf:label "daemonsetsSpec_template"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_updateStrategy
+:daemonsetsSpec_updateStrategy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#daemonsetsSpec_updateStrategy
+	 rdfs:domain :DaemonSetSpec ;
+	 rdfs:range :DaemonSetUpdateStrategy ;
+	 rdf:label "daemonsetsSpec_updateStrategy"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Deployment
+:Deployment rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Deployment"@en ;
+	 :apiVersion "apps/v1" ;
+	 :hasSpec :DeploymentSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#deployments_apiVersion
+:deployments_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Deployment ;
+	 rdfs:range xsd:string ;
+	 rdf:label "deployments_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deployments_kind
+:deployments_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Deployment ;
+	 rdfs:range xsd:string ;
+	 rdf:label "deployments_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deployments_metadata
+:deployments_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Deployment ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "deployments_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deployments_spec
+:deployments_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Deployment ;
+	 rdfs:range :DeploymentSpec ;
+	 rdf:label "deployments_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deployments_status
+:deployments_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Deployment ;
+	 rdfs:range :DeploymentStatus ;
+	 rdf:label "deployments_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/DeploymentSpec
+:DeploymentSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "DeploymentSpec"@en ;
+	 :apiVersion "apps/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_minReadySeconds
+:deploymentsSpec_minReadySeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_minReadySeconds
+	 rdfs:domain :DeploymentSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "deploymentsSpec_minReadySeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_paused
+:deploymentsSpec_paused rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_paused
+	 rdfs:domain :DeploymentSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "deploymentsSpec_paused"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_progressDeadlineSeconds
+:deploymentsSpec_progressDeadlineSeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_progressDeadlineSeconds
+	 rdfs:domain :DeploymentSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "deploymentsSpec_progressDeadlineSeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_replicas
+:deploymentsSpec_replicas rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_replicas
+	 rdfs:domain :DeploymentSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "deploymentsSpec_replicas"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_revisionHistoryLimit
+:deploymentsSpec_revisionHistoryLimit rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_revisionHistoryLimit
+	 rdfs:domain :DeploymentSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "deploymentsSpec_revisionHistoryLimit"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_selector
+:deploymentsSpec_selector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_selector
+	 rdfs:domain :DeploymentSpec ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "deploymentsSpec_selector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_strategy
+:deploymentsSpec_strategy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_strategy
+	 rdfs:domain :DeploymentSpec ;
+	 rdfs:range :DeploymentStrategy ;
+	 rdf:label "deploymentsSpec_strategy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_template
+:deploymentsSpec_template rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#deploymentsSpec_template
+	 rdfs:domain :DeploymentSpec ;
+	 rdfs:range :PodTemplateSpec ;
+	 rdf:label "deploymentsSpec_template"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ReplicaSet
+:ReplicaSet rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ReplicaSet"@en ;
+	 :apiVersion "apps/v1" ;
+	 :hasSpec :ReplicaSetSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasets_apiVersion
+:replicasets_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicaSet ;
+	 rdfs:range xsd:string ;
+	 rdf:label "replicasets_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasets_kind
+:replicasets_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicaSet ;
+	 rdfs:range xsd:string ;
+	 rdf:label "replicasets_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasets_metadata
+:replicasets_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicaSet ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "replicasets_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasets_spec
+:replicasets_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicaSet ;
+	 rdfs:range :ReplicaSetSpec ;
+	 rdf:label "replicasets_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasets_status
+:replicasets_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ReplicaSet ;
+	 rdfs:range :ReplicaSetStatus ;
+	 rdf:label "replicasets_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ReplicaSetSpec
+:ReplicaSetSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ReplicaSetSpec"@en ;
+	 :apiVersion "apps/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasetsSpec_minReadySeconds
+:replicasetsSpec_minReadySeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#replicasetsSpec_minReadySeconds
+	 rdfs:domain :ReplicaSetSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "replicasetsSpec_minReadySeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasetsSpec_replicas
+:replicasetsSpec_replicas rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#replicasetsSpec_replicas
+	 rdfs:domain :ReplicaSetSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "replicasetsSpec_replicas"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasetsSpec_selector
+:replicasetsSpec_selector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#replicasetsSpec_selector
+	 rdfs:domain :ReplicaSetSpec ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "replicasetsSpec_selector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#replicasetsSpec_template
+:replicasetsSpec_template rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#replicasetsSpec_template
+	 rdfs:domain :ReplicaSetSpec ;
+	 rdfs:range :PodTemplateSpec ;
+	 rdf:label "replicasetsSpec_template"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/StatefulSet
+:StatefulSet rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "StatefulSet"@en ;
+	 :apiVersion "apps/v1" ;
+	 :hasSpec :StatefulSetSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsets_apiVersion
+:statefulsets_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StatefulSet ;
+	 rdfs:range xsd:string ;
+	 rdf:label "statefulsets_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsets_kind
+:statefulsets_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StatefulSet ;
+	 rdfs:range xsd:string ;
+	 rdf:label "statefulsets_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsets_metadata
+:statefulsets_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StatefulSet ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "statefulsets_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsets_spec
+:statefulsets_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StatefulSet ;
+	 rdfs:range :StatefulSetSpec ;
+	 rdf:label "statefulsets_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsets_status
+:statefulsets_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StatefulSet ;
+	 rdfs:range :StatefulSetStatus ;
+	 rdf:label "statefulsets_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/StatefulSetSpec
+:StatefulSetSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "StatefulSetSpec"@en ;
+	 :apiVersion "apps/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_minReadySeconds
+:statefulsetsSpec_minReadySeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_minReadySeconds
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "statefulsetsSpec_minReadySeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_persistentVolumeClaimRetentionPolicy
+:statefulsetsSpec_persistentVolumeClaimRetentionPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_persistentVolumeClaimRetentionPolicy
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range :StatefulSetPersistentVolumeClaimRetentionPolicy ;
+	 rdf:label "statefulsetsSpec_persistentVolumeClaimRetentionPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_podManagementPolicy
+:statefulsetsSpec_podManagementPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_podManagementPolicy
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "statefulsetsSpec_podManagementPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_replicas
+:statefulsetsSpec_replicas rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_replicas
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "statefulsetsSpec_replicas"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_revisionHistoryLimit
+:statefulsetsSpec_revisionHistoryLimit rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_revisionHistoryLimit
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "statefulsetsSpec_revisionHistoryLimit"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_selector
+:statefulsetsSpec_selector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_selector
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "statefulsetsSpec_selector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_serviceName
+:statefulsetsSpec_serviceName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_serviceName
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "statefulsetsSpec_serviceName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_template
+:statefulsetsSpec_template rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_template
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range :PodTemplateSpec ;
+	 rdf:label "statefulsetsSpec_template"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_updateStrategy
+:statefulsetsSpec_updateStrategy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_updateStrategy
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range :StatefulSetUpdateStrategy ;
+	 rdf:label "statefulsetsSpec_updateStrategy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_volumeClaimTemplates
+:statefulsetsSpec_volumeClaimTemplates rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#statefulsetsSpec_volumeClaimTemplates
+	 rdfs:domain :StatefulSetSpec ;
+	 rdfs:range :PersistentVolumeClaim ;
+	 rdf:label "statefulsetsSpec_volumeClaimTemplates"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/TokenReview
+:TokenReview rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "TokenReview"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :TokenReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/TokenReviewSpec
+:TokenReviewSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "TokenReviewSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :TokenReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/LocalSubjectAccessReview
+:LocalSubjectAccessReview rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "LocalSubjectAccessReview"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :LocalSubjectAccessReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/LocalSubjectAccessReviewSpec
+:LocalSubjectAccessReviewSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "LocalSubjectAccessReviewSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :LocalSubjectAccessReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/SelfSubjectAccessReview
+:SelfSubjectAccessReview rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "SelfSubjectAccessReview"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :SelfSubjectAccessReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/SelfSubjectAccessReviewSpec
+:SelfSubjectAccessReviewSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "SelfSubjectAccessReviewSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :SelfSubjectAccessReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/SelfSubjectRulesReview
+:SelfSubjectRulesReview rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "SelfSubjectRulesReview"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :SelfSubjectRulesReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/SelfSubjectRulesReviewSpec
+:SelfSubjectRulesReviewSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "SelfSubjectRulesReviewSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :SelfSubjectRulesReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/SubjectAccessReview
+:SubjectAccessReview rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "SubjectAccessReview"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :SubjectAccessReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/SubjectAccessReviewSpec
+:SubjectAccessReviewSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "SubjectAccessReviewSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :SubjectAccessReview .
+
+
+### https://fluidos.eu/ontologies/kubernetes/HorizontalPodAutoscaler
+:HorizontalPodAutoscaler rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "HorizontalPodAutoscaler"@en ;
+	 :apiVersion "autoscaling/v2" ;
+	 :hasSpec :HorizontalPodAutoscalerSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalers_apiVersion
+:horizontalpodautoscalers_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :HorizontalPodAutoscaler ;
+	 rdfs:range xsd:string ;
+	 rdf:label "horizontalpodautoscalers_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalers_kind
+:horizontalpodautoscalers_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :HorizontalPodAutoscaler ;
+	 rdfs:range xsd:string ;
+	 rdf:label "horizontalpodautoscalers_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalers_metadata
+:horizontalpodautoscalers_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :HorizontalPodAutoscaler ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "horizontalpodautoscalers_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalers_spec
+:horizontalpodautoscalers_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :HorizontalPodAutoscaler ;
+	 rdfs:range :HorizontalPodAutoscalerSpec ;
+	 rdf:label "horizontalpodautoscalers_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalers_status
+:horizontalpodautoscalers_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :HorizontalPodAutoscaler ;
+	 rdfs:range :HorizontalPodAutoscalerStatus ;
+	 rdf:label "horizontalpodautoscalers_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/HorizontalPodAutoscalerSpec
+:HorizontalPodAutoscalerSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "HorizontalPodAutoscalerSpec"@en ;
+	 :apiVersion "autoscaling/v2" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_behavior
+:horizontalpodautoscalersSpec_behavior rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_behavior
+	 rdfs:domain :HorizontalPodAutoscalerSpec ;
+	 rdfs:range :HorizontalPodAutoscalerBehavior ;
+	 rdf:label "horizontalpodautoscalersSpec_behavior"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_maxReplicas
+:horizontalpodautoscalersSpec_maxReplicas rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_maxReplicas
+	 rdfs:domain :HorizontalPodAutoscalerSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "horizontalpodautoscalersSpec_maxReplicas"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_metrics
+:horizontalpodautoscalersSpec_metrics rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_metrics
+	 rdfs:domain :HorizontalPodAutoscalerSpec ;
+	 rdfs:range :MetricSpec ;
+	 rdf:label "horizontalpodautoscalersSpec_metrics"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_minReplicas
+:horizontalpodautoscalersSpec_minReplicas rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_minReplicas
+	 rdfs:domain :HorizontalPodAutoscalerSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "horizontalpodautoscalersSpec_minReplicas"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_scaleTargetRef
+:horizontalpodautoscalersSpec_scaleTargetRef rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#horizontalpodautoscalersSpec_scaleTargetRef
+	 rdfs:domain :HorizontalPodAutoscalerSpec ;
+	 rdfs:range :CrossVersionObjectReference ;
+	 rdf:label "horizontalpodautoscalersSpec_scaleTargetRef"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CronJob
+:CronJob rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "CronJob"@en ;
+	 :apiVersion "batch/v1" ;
+	 :hasSpec :CronJobSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobs_apiVersion
+:cronjobs_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CronJob ;
+	 rdfs:range xsd:string ;
+	 rdf:label "cronjobs_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobs_kind
+:cronjobs_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CronJob ;
+	 rdfs:range xsd:string ;
+	 rdf:label "cronjobs_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobs_metadata
+:cronjobs_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CronJob ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "cronjobs_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobs_spec
+:cronjobs_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CronJob ;
+	 rdfs:range :CronJobSpec ;
+	 rdf:label "cronjobs_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobs_status
+:cronjobs_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CronJob ;
+	 rdfs:range :CronJobStatus ;
+	 rdf:label "cronjobs_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CronJobSpec
+:CronJobSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "CronJobSpec"@en ;
+	 :apiVersion "batch/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_concurrencyPolicy
+:cronjobsSpec_concurrencyPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_concurrencyPolicy
+	 rdfs:domain :CronJobSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "cronjobsSpec_concurrencyPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_failedJobsHistoryLimit
+:cronjobsSpec_failedJobsHistoryLimit rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_failedJobsHistoryLimit
+	 rdfs:domain :CronJobSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "cronjobsSpec_failedJobsHistoryLimit"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_jobTemplate
+:cronjobsSpec_jobTemplate rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_jobTemplate
+	 rdfs:domain :CronJobSpec ;
+	 rdfs:range :JobTemplateSpec ;
+	 rdf:label "cronjobsSpec_jobTemplate"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_schedule
+:cronjobsSpec_schedule rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_schedule
+	 rdfs:domain :CronJobSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "cronjobsSpec_schedule"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_startingDeadlineSeconds
+:cronjobsSpec_startingDeadlineSeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_startingDeadlineSeconds
+	 rdfs:domain :CronJobSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "cronjobsSpec_startingDeadlineSeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_successfulJobsHistoryLimit
+:cronjobsSpec_successfulJobsHistoryLimit rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_successfulJobsHistoryLimit
+	 rdfs:domain :CronJobSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "cronjobsSpec_successfulJobsHistoryLimit"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_suspend
+:cronjobsSpec_suspend rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_suspend
+	 rdfs:domain :CronJobSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "cronjobsSpec_suspend"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_timeZone
+:cronjobsSpec_timeZone rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#cronjobsSpec_timeZone
+	 rdfs:domain :CronJobSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "cronjobsSpec_timeZone"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Job
+:Job rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Job"@en ;
+	 :apiVersion "true" ;
+	 :hasSpec :JobSpec ;
+	 :isNameSpaced :Job .
+
+### https://fluidos.eu/ontologies/kubernetes#jobs_apiVersion
+:jobs_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Job ;
+	 rdfs:range xsd:string ;
+	 rdf:label "jobs_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobs_kind
+:jobs_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Job ;
+	 rdfs:range xsd:string ;
+	 rdf:label "jobs_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobs_metadata
+:jobs_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Job ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "jobs_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobs_spec
+:jobs_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Job ;
+	 rdfs:range :JobSpec ;
+	 rdf:label "jobs_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobs_status
+:jobs_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Job ;
+	 rdfs:range :JobStatus ;
+	 rdf:label "jobs_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/JobSpec
+:JobSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "JobSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :Job .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_activeDeadlineSeconds
+:jobsSpec_activeDeadlineSeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_activeDeadlineSeconds
+	 rdfs:domain :JobSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "jobsSpec_activeDeadlineSeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_backoffLimit
+:jobsSpec_backoffLimit rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_backoffLimit
+	 rdfs:domain :JobSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "jobsSpec_backoffLimit"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_completionMode
+:jobsSpec_completionMode rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_completionMode
+	 rdfs:domain :JobSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "jobsSpec_completionMode"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_completions
+:jobsSpec_completions rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_completions
+	 rdfs:domain :JobSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "jobsSpec_completions"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_manualSelector
+:jobsSpec_manualSelector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_manualSelector
+	 rdfs:domain :JobSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "jobsSpec_manualSelector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_parallelism
+:jobsSpec_parallelism rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_parallelism
+	 rdfs:domain :JobSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "jobsSpec_parallelism"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_podFailurePolicy
+:jobsSpec_podFailurePolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_podFailurePolicy
+	 rdfs:domain :JobSpec ;
+	 rdfs:range :PodFailurePolicy ;
+	 rdf:label "jobsSpec_podFailurePolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_selector
+:jobsSpec_selector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_selector
+	 rdfs:domain :JobSpec ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "jobsSpec_selector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_suspend
+:jobsSpec_suspend rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_suspend
+	 rdfs:domain :JobSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "jobsSpec_suspend"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_template
+:jobsSpec_template rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_template
+	 rdfs:domain :JobSpec ;
+	 rdfs:range :PodTemplateSpec ;
+	 rdf:label "jobsSpec_template"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_ttlSecondsAfterFinished
+:jobsSpec_ttlSecondsAfterFinished rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#jobsSpec_ttlSecondsAfterFinished
+	 rdfs:domain :JobSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "jobsSpec_ttlSecondsAfterFinished"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CertificateSigningRequest
+:CertificateSigningRequest rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "CertificateSigningRequest"@en ;
+	 :apiVersion "certificates.k8s.io/v1" ;
+	 :hasSpec :CertificateSigningRequestSpec ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequests_apiVersion
+:certificatesigningrequests_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CertificateSigningRequest ;
+	 rdfs:range xsd:string ;
+	 rdf:label "certificatesigningrequests_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequests_kind
+:certificatesigningrequests_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CertificateSigningRequest ;
+	 rdfs:range xsd:string ;
+	 rdf:label "certificatesigningrequests_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequests_metadata
+:certificatesigningrequests_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CertificateSigningRequest ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "certificatesigningrequests_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequests_spec
+:certificatesigningrequests_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CertificateSigningRequest ;
+	 rdfs:range :CertificateSigningRequestSpec ;
+	 rdf:label "certificatesigningrequests_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequests_status
+:certificatesigningrequests_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CertificateSigningRequest ;
+	 rdfs:range :CertificateSigningRequestStatus ;
+	 rdf:label "certificatesigningrequests_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CertificateSigningRequestSpec
+:CertificateSigningRequestSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "CertificateSigningRequestSpec"@en ;
+	 :apiVersion "certificates.k8s.io/v1" ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_expirationSeconds
+:certificatesigningrequestsSpec_expirationSeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_expirationSeconds
+	 rdfs:domain :CertificateSigningRequestSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "certificatesigningrequestsSpec_expirationSeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_extra
+:certificatesigningrequestsSpec_extra rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_extra
+	 rdfs:domain :CertificateSigningRequestSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "certificatesigningrequestsSpec_extra"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_groups
+:certificatesigningrequestsSpec_groups rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_groups
+	 rdfs:domain :CertificateSigningRequestSpec ;
+	 rdfs:range :string ;
+	 rdf:label "certificatesigningrequestsSpec_groups"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_request
+:certificatesigningrequestsSpec_request rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_request
+	 rdfs:domain :CertificateSigningRequestSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "certificatesigningrequestsSpec_request"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_signerName
+:certificatesigningrequestsSpec_signerName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_signerName
+	 rdfs:domain :CertificateSigningRequestSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "certificatesigningrequestsSpec_signerName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_uid
+:certificatesigningrequestsSpec_uid rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_uid
+	 rdfs:domain :CertificateSigningRequestSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "certificatesigningrequestsSpec_uid"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_usages
+:certificatesigningrequestsSpec_usages rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_usages
+	 rdfs:domain :CertificateSigningRequestSpec ;
+	 rdfs:range :string ;
+	 rdf:label "certificatesigningrequestsSpec_usages"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_username
+:certificatesigningrequestsSpec_username rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#certificatesigningrequestsSpec_username
+	 rdfs:domain :CertificateSigningRequestSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "certificatesigningrequestsSpec_username"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Lease
+:Lease rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Lease"@en ;
+	 :apiVersion "true" ;
+	 :hasSpec :LeaseSpec ;
+	 :isNameSpaced :Lease .
+
+### https://fluidos.eu/ontologies/kubernetes#leases_apiVersion
+:leases_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Lease ;
+	 rdfs:range xsd:string ;
+	 rdf:label "leases_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#leases_kind
+:leases_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Lease ;
+	 rdfs:range xsd:string ;
+	 rdf:label "leases_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#leases_metadata
+:leases_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Lease ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "leases_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#leases_spec
+:leases_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Lease ;
+	 rdfs:range :LeaseSpec ;
+	 rdf:label "leases_spec"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/LeaseSpec
+:LeaseSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "LeaseSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :Lease .
+
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_acquireTime
+:leasesSpec_acquireTime rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_acquireTime
+	 rdfs:domain :LeaseSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "leasesSpec_acquireTime"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_holderIdentity
+:leasesSpec_holderIdentity rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_holderIdentity
+	 rdfs:domain :LeaseSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "leasesSpec_holderIdentity"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_leaseDurationSeconds
+:leasesSpec_leaseDurationSeconds rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_leaseDurationSeconds
+	 rdfs:domain :LeaseSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "leasesSpec_leaseDurationSeconds"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_leaseTransitions
+:leasesSpec_leaseTransitions rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_leaseTransitions
+	 rdfs:domain :LeaseSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "leasesSpec_leaseTransitions"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_renewTime
+:leasesSpec_renewTime rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#leasesSpec_renewTime
+	 rdfs:domain :LeaseSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "leasesSpec_renewTime"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/EndpointSlice
+:EndpointSlice rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "EndpointSlice"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :EndpointSlice .
+
+### https://fluidos.eu/ontologies/kubernetes#endpointslices_addressType
+:endpointslices_addressType rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :EndpointSlice ;
+	 rdfs:range xsd:string ;
+	 rdf:label "endpointslices_addressType"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#endpointslices_apiVersion
+:endpointslices_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :EndpointSlice ;
+	 rdfs:range xsd:string ;
+	 rdf:label "endpointslices_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#endpointslices_endpoints
+:endpointslices_endpoints rdf:type owl:ObjectProperty ;
+	 rdfs:domain :EndpointSlice ;
+	 rdfs:range :Endpoint ;
+	 rdf:label "endpointslices_endpoints"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#endpointslices_kind
+:endpointslices_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :EndpointSlice ;
+	 rdfs:range xsd:string ;
+	 rdf:label "endpointslices_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#endpointslices_metadata
+:endpointslices_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :EndpointSlice ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "endpointslices_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#endpointslices_ports
+:endpointslices_ports rdf:type owl:ObjectProperty ;
+	 rdfs:domain :EndpointSlice ;
+	 rdfs:range :EndpointPort ;
+	 rdf:label "endpointslices_ports"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/EndpointSliceSpec
+:EndpointSliceSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "EndpointSliceSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :EndpointSlice .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Event
+:Event rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Event"@en ;
+	 :apiVersion "events.k8s.io/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#events_action
+:events_action rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_action"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_apiVersion
+:events_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_count
+:events_count rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "events_count"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_eventTime
+:events_eventTime rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_eventTime"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_firstTimestamp
+:events_firstTimestamp rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_firstTimestamp"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_involvedObject
+:events_involvedObject rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :ObjectReference ;
+	 rdf:label "events_involvedObject"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_kind
+:events_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_lastTimestamp
+:events_lastTimestamp rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_lastTimestamp"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_message
+:events_message rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_message"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_metadata
+:events_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "events_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_reason
+:events_reason rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_reason"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_related
+:events_related rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :ObjectReference ;
+	 rdf:label "events_related"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_reportingComponent
+:events_reportingComponent rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_reportingComponent"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_reportingInstance
+:events_reportingInstance rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_reportingInstance"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_series
+:events_series rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :EventSeries ;
+	 rdf:label "events_series"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_source
+:events_source rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range :EventSource ;
+	 rdf:label "events_source"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#events_type
+:events_type rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Event ;
+	 rdfs:range xsd:string ;
+	 rdf:label "events_type"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/EventSpec
+:EventSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "EventSpec"@en ;
+	 :apiVersion "events.k8s.io/v1" ;
+	 :isNameSpaced :true .
+
+
+### https://fluidos.eu/ontologies/kubernetes/FlowSchema
+:FlowSchema rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "FlowSchema"@en ;
+	 :apiVersion "false" ;
+	 :hasSpec :FlowSchemaSpec ;
+	 :isNameSpaced :FlowSchema .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemas_apiVersion
+:flowschemas_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :FlowSchema ;
+	 rdfs:range xsd:string ;
+	 rdf:label "flowschemas_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemas_kind
+:flowschemas_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :FlowSchema ;
+	 rdfs:range xsd:string ;
+	 rdf:label "flowschemas_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemas_metadata
+:flowschemas_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :FlowSchema ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "flowschemas_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemas_spec
+:flowschemas_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :FlowSchema ;
+	 rdfs:range :FlowSchemaSpec ;
+	 rdf:label "flowschemas_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemas_status
+:flowschemas_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :FlowSchema ;
+	 rdfs:range :FlowSchemaStatus ;
+	 rdf:label "flowschemas_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/FlowSchemaSpec
+:FlowSchemaSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "FlowSchemaSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :FlowSchema .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemasSpec_distinguisherMethod
+:flowschemasSpec_distinguisherMethod rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#flowschemasSpec_distinguisherMethod
+	 rdfs:domain :FlowSchemaSpec ;
+	 rdfs:range :FlowDistinguisherMethod ;
+	 rdf:label "flowschemasSpec_distinguisherMethod"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemasSpec_matchingPrecedence
+:flowschemasSpec_matchingPrecedence rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#flowschemasSpec_matchingPrecedence
+	 rdfs:domain :FlowSchemaSpec ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "flowschemasSpec_matchingPrecedence"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemasSpec_priorityLevelConfiguration
+:flowschemasSpec_priorityLevelConfiguration rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#flowschemasSpec_priorityLevelConfiguration
+	 rdfs:domain :FlowSchemaSpec ;
+	 rdfs:range :PriorityLevelConfigurationReference ;
+	 rdf:label "flowschemasSpec_priorityLevelConfiguration"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#flowschemasSpec_rules
+:flowschemasSpec_rules rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#flowschemasSpec_rules
+	 rdfs:domain :FlowSchemaSpec ;
+	 rdfs:range :PolicyRulesWithSubjects ;
+	 rdf:label "flowschemasSpec_rules"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PriorityLevelConfiguration
+:PriorityLevelConfiguration rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "PriorityLevelConfiguration"@en ;
+	 :apiVersion "false" ;
+	 :hasSpec :PriorityLevelConfigurationSpec ;
+	 :isNameSpaced :PriorityLevelConfiguration .
+
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurations_apiVersion
+:prioritylevelconfigurations_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityLevelConfiguration ;
+	 rdfs:range xsd:string ;
+	 rdf:label "prioritylevelconfigurations_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurations_kind
+:prioritylevelconfigurations_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityLevelConfiguration ;
+	 rdfs:range xsd:string ;
+	 rdf:label "prioritylevelconfigurations_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurations_metadata
+:prioritylevelconfigurations_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityLevelConfiguration ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "prioritylevelconfigurations_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurations_spec
+:prioritylevelconfigurations_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityLevelConfiguration ;
+	 rdfs:range :PriorityLevelConfigurationSpec ;
+	 rdf:label "prioritylevelconfigurations_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurations_status
+:prioritylevelconfigurations_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityLevelConfiguration ;
+	 rdfs:range :PriorityLevelConfigurationStatus ;
+	 rdf:label "prioritylevelconfigurations_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PriorityLevelConfigurationSpec
+:PriorityLevelConfigurationSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "PriorityLevelConfigurationSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :PriorityLevelConfiguration .
+
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurationsSpec_limited
+:prioritylevelconfigurationsSpec_limited rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurationsSpec_limited
+	 rdfs:domain :PriorityLevelConfigurationSpec ;
+	 rdfs:range :LimitedPriorityLevelConfiguration ;
+	 rdf:label "prioritylevelconfigurationsSpec_limited"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurationsSpec_type
+:prioritylevelconfigurationsSpec_type rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#prioritylevelconfigurationsSpec_type
+	 rdfs:domain :PriorityLevelConfigurationSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "prioritylevelconfigurationsSpec_type"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/IngressClass
+:IngressClass rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "IngressClass"@en ;
+	 :apiVersion "false" ;
+	 :hasSpec :IngressClassSpec ;
+	 :isNameSpaced :IngressClass .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressclasses_apiVersion
+:ingressclasses_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :IngressClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "ingressclasses_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressclasses_kind
+:ingressclasses_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :IngressClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "ingressclasses_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressclasses_metadata
+:ingressclasses_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :IngressClass ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "ingressclasses_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressclasses_spec
+:ingressclasses_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :IngressClass ;
+	 rdfs:range :IngressClassSpec ;
+	 rdf:label "ingressclasses_spec"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/IngressClassSpec
+:IngressClassSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "IngressClassSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :IngressClass .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressclassesSpec_controller
+:ingressclassesSpec_controller rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#ingressclassesSpec_controller
+	 rdfs:domain :IngressClassSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "ingressclassesSpec_controller"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressclassesSpec_parameters
+:ingressclassesSpec_parameters rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#ingressclassesSpec_parameters
+	 rdfs:domain :IngressClassSpec ;
+	 rdfs:range :IngressClassParametersReference ;
+	 rdf:label "ingressclassesSpec_parameters"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Ingress
+:Ingress rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Ingress"@en ;
+	 :apiVersion "networking.k8s.io/v1" ;
+	 :hasSpec :IngressSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#ingresses_apiVersion
+:ingresses_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Ingress ;
+	 rdfs:range xsd:string ;
+	 rdf:label "ingresses_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingresses_kind
+:ingresses_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Ingress ;
+	 rdfs:range xsd:string ;
+	 rdf:label "ingresses_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingresses_metadata
+:ingresses_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Ingress ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "ingresses_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingresses_spec
+:ingresses_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Ingress ;
+	 rdfs:range :IngressSpec ;
+	 rdf:label "ingresses_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingresses_status
+:ingresses_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Ingress ;
+	 rdfs:range :IngressStatus ;
+	 rdf:label "ingresses_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/IngressSpec
+:IngressSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "IngressSpec"@en ;
+	 :apiVersion "networking.k8s.io/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressesSpec_defaultBackend
+:ingressesSpec_defaultBackend rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#ingressesSpec_defaultBackend
+	 rdfs:domain :IngressSpec ;
+	 rdfs:range :IngressBackend ;
+	 rdf:label "ingressesSpec_defaultBackend"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressesSpec_ingressClassName
+:ingressesSpec_ingressClassName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#ingressesSpec_ingressClassName
+	 rdfs:domain :IngressSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "ingressesSpec_ingressClassName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressesSpec_rules
+:ingressesSpec_rules rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#ingressesSpec_rules
+	 rdfs:domain :IngressSpec ;
+	 rdfs:range :IngressRule ;
+	 rdf:label "ingressesSpec_rules"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#ingressesSpec_tls
+:ingressesSpec_tls rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#ingressesSpec_tls
+	 rdfs:domain :IngressSpec ;
+	 rdfs:range :IngressTLS ;
+	 rdf:label "ingressesSpec_tls"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/NetworkPolicy
+:NetworkPolicy rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "NetworkPolicy"@en ;
+	 :apiVersion "networking.k8s.io/v1" ;
+	 :hasSpec :NetworkPolicySpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpolicies_apiVersion
+:networkpolicies_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :NetworkPolicy ;
+	 rdfs:range xsd:string ;
+	 rdf:label "networkpolicies_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpolicies_kind
+:networkpolicies_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :NetworkPolicy ;
+	 rdfs:range xsd:string ;
+	 rdf:label "networkpolicies_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpolicies_metadata
+:networkpolicies_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :NetworkPolicy ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "networkpolicies_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpolicies_spec
+:networkpolicies_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :NetworkPolicy ;
+	 rdfs:range :NetworkPolicySpec ;
+	 rdf:label "networkpolicies_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpolicies_status
+:networkpolicies_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :NetworkPolicy ;
+	 rdfs:range :NetworkPolicyStatus ;
+	 rdf:label "networkpolicies_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/NetworkPolicySpec
+:NetworkPolicySpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "NetworkPolicySpec"@en ;
+	 :apiVersion "networking.k8s.io/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpoliciesSpec_egress
+:networkpoliciesSpec_egress rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#networkpoliciesSpec_egress
+	 rdfs:domain :NetworkPolicySpec ;
+	 rdfs:range :NetworkPolicyEgressRule ;
+	 rdf:label "networkpoliciesSpec_egress"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpoliciesSpec_ingress
+:networkpoliciesSpec_ingress rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#networkpoliciesSpec_ingress
+	 rdfs:domain :NetworkPolicySpec ;
+	 rdfs:range :NetworkPolicyIngressRule ;
+	 rdf:label "networkpoliciesSpec_ingress"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpoliciesSpec_podSelector
+:networkpoliciesSpec_podSelector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#networkpoliciesSpec_podSelector
+	 rdfs:domain :NetworkPolicySpec ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "networkpoliciesSpec_podSelector"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#networkpoliciesSpec_policyTypes
+:networkpoliciesSpec_policyTypes rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#networkpoliciesSpec_policyTypes
+	 rdfs:domain :NetworkPolicySpec ;
+	 rdfs:range :string ;
+	 rdf:label "networkpoliciesSpec_policyTypes"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/RuntimeClass
+:RuntimeClass rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "RuntimeClass"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :RuntimeClass .
+
+### https://fluidos.eu/ontologies/kubernetes#runtimeclasses_apiVersion
+:runtimeclasses_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RuntimeClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "runtimeclasses_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#runtimeclasses_handler
+:runtimeclasses_handler rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RuntimeClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "runtimeclasses_handler"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#runtimeclasses_kind
+:runtimeclasses_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RuntimeClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "runtimeclasses_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#runtimeclasses_metadata
+:runtimeclasses_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RuntimeClass ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "runtimeclasses_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#runtimeclasses_overhead
+:runtimeclasses_overhead rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RuntimeClass ;
+	 rdfs:range :Overhead ;
+	 rdf:label "runtimeclasses_overhead"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#runtimeclasses_scheduling
+:runtimeclasses_scheduling rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RuntimeClass ;
+	 rdfs:range :Scheduling ;
+	 rdf:label "runtimeclasses_scheduling"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/RuntimeClassSpec
+:RuntimeClassSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "RuntimeClassSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :RuntimeClass .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PodDisruptionBudget
+:PodDisruptionBudget rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "PodDisruptionBudget"@en ;
+	 :apiVersion "policy/v1" ;
+	 :hasSpec :PodDisruptionBudgetSpec ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgets_apiVersion
+:poddisruptionbudgets_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodDisruptionBudget ;
+	 rdfs:range xsd:string ;
+	 rdf:label "poddisruptionbudgets_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgets_kind
+:poddisruptionbudgets_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodDisruptionBudget ;
+	 rdfs:range xsd:string ;
+	 rdf:label "poddisruptionbudgets_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgets_metadata
+:poddisruptionbudgets_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodDisruptionBudget ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "poddisruptionbudgets_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgets_spec
+:poddisruptionbudgets_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodDisruptionBudget ;
+	 rdfs:range :PodDisruptionBudgetSpec ;
+	 rdf:label "poddisruptionbudgets_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgets_status
+:poddisruptionbudgets_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PodDisruptionBudget ;
+	 rdfs:range :PodDisruptionBudgetStatus ;
+	 rdf:label "poddisruptionbudgets_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PodDisruptionBudgetSpec
+:PodDisruptionBudgetSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "PodDisruptionBudgetSpec"@en ;
+	 :apiVersion "policy/v1" ;
+	 :isNameSpaced :true .
+
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgetsSpec_maxUnavailable
+:poddisruptionbudgetsSpec_maxUnavailable rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgetsSpec_maxUnavailable
+	 rdfs:domain :PodDisruptionBudgetSpec ;
+	 rdfs:range :IntOrString ;
+	 rdf:label "poddisruptionbudgetsSpec_maxUnavailable"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgetsSpec_minAvailable
+:poddisruptionbudgetsSpec_minAvailable rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgetsSpec_minAvailable
+	 rdfs:domain :PodDisruptionBudgetSpec ;
+	 rdfs:range :IntOrString ;
+	 rdf:label "poddisruptionbudgetsSpec_minAvailable"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgetsSpec_selector
+:poddisruptionbudgetsSpec_selector rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#poddisruptionbudgetsSpec_selector
+	 rdfs:domain :PodDisruptionBudgetSpec ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "poddisruptionbudgetsSpec_selector"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ClusterRoleBinding
+:ClusterRoleBinding rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ClusterRoleBinding"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :ClusterRoleBinding .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterrolebindings_apiVersion
+:clusterrolebindings_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ClusterRoleBinding ;
+	 rdfs:range xsd:string ;
+	 rdf:label "clusterrolebindings_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterrolebindings_kind
+:clusterrolebindings_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ClusterRoleBinding ;
+	 rdfs:range xsd:string ;
+	 rdf:label "clusterrolebindings_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterrolebindings_metadata
+:clusterrolebindings_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ClusterRoleBinding ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "clusterrolebindings_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterrolebindings_roleRef
+:clusterrolebindings_roleRef rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ClusterRoleBinding ;
+	 rdfs:range :RoleRef ;
+	 rdf:label "clusterrolebindings_roleRef"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterrolebindings_subjects
+:clusterrolebindings_subjects rdf:type owl:ObjectProperty ;
+	 rdfs:domain :ClusterRoleBinding ;
+	 rdfs:range :Subject ;
+	 rdf:label "clusterrolebindings_subjects"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ClusterRoleBindingSpec
+:ClusterRoleBindingSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ClusterRoleBindingSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :ClusterRoleBinding .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ClusterRole
+:ClusterRole rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "ClusterRole"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :ClusterRole .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterroles_aggregationRule
+:clusterroles_aggregationRule rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ClusterRole ;
+	 rdfs:range :AggregationRule ;
+	 rdf:label "clusterroles_aggregationRule"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterroles_apiVersion
+:clusterroles_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ClusterRole ;
+	 rdfs:range xsd:string ;
+	 rdf:label "clusterroles_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterroles_kind
+:clusterroles_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ClusterRole ;
+	 rdfs:range xsd:string ;
+	 rdf:label "clusterroles_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterroles_metadata
+:clusterroles_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :ClusterRole ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "clusterroles_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#clusterroles_rules
+:clusterroles_rules rdf:type owl:ObjectProperty ;
+	 rdfs:domain :ClusterRole ;
+	 rdfs:range :PolicyRule ;
+	 rdf:label "clusterroles_rules"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/ClusterRoleSpec
+:ClusterRoleSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "ClusterRoleSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :ClusterRole .
+
+
+### https://fluidos.eu/ontologies/kubernetes/RoleBinding
+:RoleBinding rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "RoleBinding"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :RoleBinding .
+
+### https://fluidos.eu/ontologies/kubernetes#rolebindings_apiVersion
+:rolebindings_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RoleBinding ;
+	 rdfs:range xsd:string ;
+	 rdf:label "rolebindings_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#rolebindings_kind
+:rolebindings_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RoleBinding ;
+	 rdfs:range xsd:string ;
+	 rdf:label "rolebindings_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#rolebindings_metadata
+:rolebindings_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RoleBinding ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "rolebindings_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#rolebindings_roleRef
+:rolebindings_roleRef rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :RoleBinding ;
+	 rdfs:range :RoleRef ;
+	 rdf:label "rolebindings_roleRef"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#rolebindings_subjects
+:rolebindings_subjects rdf:type owl:ObjectProperty ;
+	 rdfs:domain :RoleBinding ;
+	 rdfs:range :Subject ;
+	 rdf:label "rolebindings_subjects"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/RoleBindingSpec
+:RoleBindingSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "RoleBindingSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :RoleBinding .
+
+
+### https://fluidos.eu/ontologies/kubernetes/Role
+:Role rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "Role"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :Role .
+
+### https://fluidos.eu/ontologies/kubernetes#roles_apiVersion
+:roles_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Role ;
+	 rdfs:range xsd:string ;
+	 rdf:label "roles_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#roles_kind
+:roles_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Role ;
+	 rdfs:range xsd:string ;
+	 rdf:label "roles_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#roles_metadata
+:roles_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :Role ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "roles_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#roles_rules
+:roles_rules rdf:type owl:ObjectProperty ;
+	 rdfs:domain :Role ;
+	 rdfs:range :PolicyRule ;
+	 rdf:label "roles_rules"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/RoleSpec
+:RoleSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "RoleSpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :Role .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PriorityClass
+:PriorityClass rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "PriorityClass"@en ;
+	 :apiVersion "scheduling.k8s.io/v1" ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#priorityclasses_apiVersion
+:priorityclasses_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "priorityclasses_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#priorityclasses_description
+:priorityclasses_description rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "priorityclasses_description"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#priorityclasses_globalDefault
+:priorityclasses_globalDefault rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityClass ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "priorityclasses_globalDefault"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#priorityclasses_kind
+:priorityclasses_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "priorityclasses_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#priorityclasses_metadata
+:priorityclasses_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityClass ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "priorityclasses_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#priorityclasses_preemptionPolicy
+:priorityclasses_preemptionPolicy rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "priorityclasses_preemptionPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#priorityclasses_value
+:priorityclasses_value rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :PriorityClass ;
+	 rdfs:range xsd:integer ;
+	 rdf:label "priorityclasses_value"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/PriorityClassSpec
+:PriorityClassSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "PriorityClassSpec"@en ;
+	 :apiVersion "scheduling.k8s.io/v1" ;
+	 :isNameSpaced :false .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CSIDriver
+:CSIDriver rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "CSIDriver"@en ;
+	 :apiVersion "false" ;
+	 :hasSpec :CSIDriverSpec ;
+	 :isNameSpaced :CSIDriver .
+
+### https://fluidos.eu/ontologies/kubernetes#csidrivers_apiVersion
+:csidrivers_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIDriver ;
+	 rdfs:range xsd:string ;
+	 rdf:label "csidrivers_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidrivers_kind
+:csidrivers_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIDriver ;
+	 rdfs:range xsd:string ;
+	 rdf:label "csidrivers_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidrivers_metadata
+:csidrivers_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIDriver ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "csidrivers_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidrivers_spec
+:csidrivers_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIDriver ;
+	 rdfs:range :CSIDriverSpec ;
+	 rdf:label "csidrivers_spec"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CSIDriverSpec
+:CSIDriverSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "CSIDriverSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :CSIDriver .
+
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_attachRequired
+:csidriversSpec_attachRequired rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_attachRequired
+	 rdfs:domain :CSIDriverSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "csidriversSpec_attachRequired"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_fsGroupPolicy
+:csidriversSpec_fsGroupPolicy rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_fsGroupPolicy
+	 rdfs:domain :CSIDriverSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "csidriversSpec_fsGroupPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_podInfoOnMount
+:csidriversSpec_podInfoOnMount rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_podInfoOnMount
+	 rdfs:domain :CSIDriverSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "csidriversSpec_podInfoOnMount"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_requiresRepublish
+:csidriversSpec_requiresRepublish rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_requiresRepublish
+	 rdfs:domain :CSIDriverSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "csidriversSpec_requiresRepublish"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_seLinuxMount
+:csidriversSpec_seLinuxMount rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_seLinuxMount
+	 rdfs:domain :CSIDriverSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "csidriversSpec_seLinuxMount"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_storageCapacity
+:csidriversSpec_storageCapacity rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_storageCapacity
+	 rdfs:domain :CSIDriverSpec ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "csidriversSpec_storageCapacity"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_tokenRequests
+:csidriversSpec_tokenRequests rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_tokenRequests
+	 rdfs:domain :CSIDriverSpec ;
+	 rdfs:range :TokenRequest ;
+	 rdf:label "csidriversSpec_tokenRequests"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_volumeLifecycleModes
+:csidriversSpec_volumeLifecycleModes rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csidriversSpec_volumeLifecycleModes
+	 rdfs:domain :CSIDriverSpec ;
+	 rdfs:range :string ;
+	 rdf:label "csidriversSpec_volumeLifecycleModes"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CSINode
+:CSINode rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "CSINode"@en ;
+	 :apiVersion "false" ;
+	 :hasSpec :CSINodeSpec ;
+	 :isNameSpaced :CSINode .
+
+### https://fluidos.eu/ontologies/kubernetes#csinodes_apiVersion
+:csinodes_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSINode ;
+	 rdfs:range xsd:string ;
+	 rdf:label "csinodes_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csinodes_kind
+:csinodes_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSINode ;
+	 rdfs:range xsd:string ;
+	 rdf:label "csinodes_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csinodes_metadata
+:csinodes_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSINode ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "csinodes_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csinodes_spec
+:csinodes_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSINode ;
+	 rdfs:range :CSINodeSpec ;
+	 rdf:label "csinodes_spec"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CSINodeSpec
+:CSINodeSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "CSINodeSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :CSINode .
+
+### https://fluidos.eu/ontologies/kubernetes#csinodesSpec_drivers
+:csinodesSpec_drivers rdf:type owl:ObjectProperty ;
+### https://fluidos.eu/ontologies/kubernetes#csinodesSpec_drivers
+	 rdfs:domain :CSINodeSpec ;
+	 rdfs:range :CSINodeDriver ;
+	 rdf:label "csinodesSpec_drivers"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CSIStorageCapacity
+:CSIStorageCapacity rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "CSIStorageCapacity"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :CSIStorageCapacity .
+
+### https://fluidos.eu/ontologies/kubernetes#csistoragecapacities_apiVersion
+:csistoragecapacities_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIStorageCapacity ;
+	 rdfs:range xsd:string ;
+	 rdf:label "csistoragecapacities_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csistoragecapacities_capacity
+:csistoragecapacities_capacity rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIStorageCapacity ;
+	 rdfs:range :Quantity ;
+	 rdf:label "csistoragecapacities_capacity"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csistoragecapacities_kind
+:csistoragecapacities_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIStorageCapacity ;
+	 rdfs:range xsd:string ;
+	 rdf:label "csistoragecapacities_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csistoragecapacities_maximumVolumeSize
+:csistoragecapacities_maximumVolumeSize rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIStorageCapacity ;
+	 rdfs:range :Quantity ;
+	 rdf:label "csistoragecapacities_maximumVolumeSize"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csistoragecapacities_metadata
+:csistoragecapacities_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIStorageCapacity ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "csistoragecapacities_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csistoragecapacities_nodeTopology
+:csistoragecapacities_nodeTopology rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIStorageCapacity ;
+	 rdfs:range :LabelSelector ;
+	 rdf:label "csistoragecapacities_nodeTopology"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#csistoragecapacities_storageClassName
+:csistoragecapacities_storageClassName rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :CSIStorageCapacity ;
+	 rdfs:range xsd:string ;
+	 rdf:label "csistoragecapacities_storageClassName"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/CSIStorageCapacitySpec
+:CSIStorageCapacitySpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "CSIStorageCapacitySpec"@en ;
+	 :apiVersion "true" ;
+	 :isNameSpaced :CSIStorageCapacity .
+
+
+### https://fluidos.eu/ontologies/kubernetes/StorageClass
+:StorageClass rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "StorageClass"@en ;
+	 :apiVersion "storage.k8s.io/v1" ;
+	 :isNameSpaced :false .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_allowVolumeExpansion
+:storageclasses_allowVolumeExpansion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range xsd:boolean ;
+	 rdf:label "storageclasses_allowVolumeExpansion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_allowedTopologies
+:storageclasses_allowedTopologies rdf:type owl:ObjectProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range :TopologySelectorTerm ;
+	 rdf:label "storageclasses_allowedTopologies"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_apiVersion
+:storageclasses_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "storageclasses_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_kind
+:storageclasses_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "storageclasses_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_metadata
+:storageclasses_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "storageclasses_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_mountOptions
+:storageclasses_mountOptions rdf:type owl:ObjectProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range :string ;
+	 rdf:label "storageclasses_mountOptions"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_parameters
+:storageclasses_parameters rdf:type owl:ObjectProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "storageclasses_parameters"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_provisioner
+:storageclasses_provisioner rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "storageclasses_provisioner"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_reclaimPolicy
+:storageclasses_reclaimPolicy rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "storageclasses_reclaimPolicy"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#storageclasses_volumeBindingMode
+:storageclasses_volumeBindingMode rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :StorageClass ;
+	 rdfs:range xsd:string ;
+	 rdf:label "storageclasses_volumeBindingMode"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/StorageClassSpec
+:StorageClassSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "StorageClassSpec"@en ;
+	 :apiVersion "storage.k8s.io/v1" ;
+	 :isNameSpaced :false .
+
+
+### https://fluidos.eu/ontologies/kubernetes/VolumeAttachment
+:VolumeAttachment rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponent ;
+	 rdf:label "VolumeAttachment"@en ;
+	 :apiVersion "false" ;
+	 :hasSpec :VolumeAttachmentSpec ;
+	 :isNameSpaced :VolumeAttachment .
+
+### https://fluidos.eu/ontologies/kubernetes#volumeattachments_apiVersion
+:volumeattachments_apiVersion rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :VolumeAttachment ;
+	 rdfs:range xsd:string ;
+	 rdf:label "volumeattachments_apiVersion"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#volumeattachments_kind
+:volumeattachments_kind rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :VolumeAttachment ;
+	 rdfs:range xsd:string ;
+	 rdf:label "volumeattachments_kind"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#volumeattachments_metadata
+:volumeattachments_metadata rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :VolumeAttachment ;
+	 rdfs:range :ObjectMeta ;
+	 rdf:label "volumeattachments_metadata"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#volumeattachments_spec
+:volumeattachments_spec rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :VolumeAttachment ;
+	 rdfs:range :VolumeAttachmentSpec ;
+	 rdf:label "volumeattachments_spec"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#volumeattachments_status
+:volumeattachments_status rdf:type owl:FunctionalProperty ;
+	 rdfs:domain :VolumeAttachment ;
+	 rdfs:range :VolumeAttachmentStatus ;
+	 rdf:label "volumeattachments_status"@en .
+
+
+### https://fluidos.eu/ontologies/kubernetes/VolumeAttachmentSpec
+:VolumeAttachmentSpec rdf:type owl:Class ;
+	 rdf:subClassOf :KubernetesComponentSpec ;
+	 rdf:label "VolumeAttachmentSpec"@en ;
+	 :apiVersion "false" ;
+	 :isNameSpaced :VolumeAttachment .
+
+### https://fluidos.eu/ontologies/kubernetes#volumeattachmentsSpec_attacher
+:volumeattachmentsSpec_attacher rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#volumeattachmentsSpec_attacher
+	 rdfs:domain :VolumeAttachmentSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "volumeattachmentsSpec_attacher"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#volumeattachmentsSpec_nodeName
+:volumeattachmentsSpec_nodeName rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#volumeattachmentsSpec_nodeName
+	 rdfs:domain :VolumeAttachmentSpec ;
+	 rdfs:range xsd:string ;
+	 rdf:label "volumeattachmentsSpec_nodeName"@en .
+
+### https://fluidos.eu/ontologies/kubernetes#volumeattachmentsSpec_source
+:volumeattachmentsSpec_source rdf:type owl:FunctionalProperty ;
+### https://fluidos.eu/ontologies/kubernetes#volumeattachmentsSpec_source
+	 rdfs:domain :VolumeAttachmentSpec ;
+	 rdfs:range :VolumeAttachmentSource ;
+	 rdf:label "volumeattachmentsSpec_source"@en .
