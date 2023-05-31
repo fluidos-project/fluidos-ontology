@@ -46,6 +46,10 @@ dcterms:created rdf:type owl:AnnotationProperty .
 dcterms:title rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2002/07/owl#sameAs
 owl:sameAs rdf:type owl:AnnotationProperty .
 
@@ -62,10 +66,29 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://fluidos.eu/ontologies#hasResourceOffering
-:hasResourceOffering rdf:type owl:ObjectProperty ;
-                     rdfs:domain :Catalogue ;
-                     rdfs:range :Flavour .
+###  https://fluidos.eu/ontologies#hasUUID
+:hasUUID rdf:type owl:ObjectProperty ,
+                  owl:FunctionalProperty ,
+                  owl:InverseFunctionalProperty ;
+         rdfs:domain :Flavour ;
+         rdfs:range :Resource ;
+         rdfs:label "HasUniqueIdentifier"@en .
+
+
+###  https://fluidos.eu/ontologies#resourceInstanceQuantity
+:resourceInstanceQuantity rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ResourceInstance ;
+                          rdfs:range [ rdf:type owl:Restriction ;
+                                       owl:onProperty owl:topDataProperty ;
+                                       owl:someValuesFrom xsd:positiveInteger
+                                     ] .
+
+
+###  https://fluidos.eu/ontologies#resourceInstanceType
+:resourceInstanceType rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf owl:topObjectProperty ;
+                      rdfs:domain :ResourceInstance ;
+                      rdfs:range :Resource .
 
 
 ###  https://fluidos.eu/ontologies/belongsToDomain
@@ -124,6 +147,12 @@ xsd:date rdf:type rdfs:Datatype .
               rdfs:range :Processor .
 
 
+###  https://fluidos.eu/ontologies/hasResourceOffering
+:hasResourceOffering rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Catalogue ;
+                     rdfs:range :ResourceInstance .
+
+
 ###  https://fluidos.eu/ontologies/hasSuperNode
 :hasSuperNode rdf:type owl:ObjectProperty ,
                        owl:InverseFunctionalProperty ;
@@ -147,16 +176,25 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/offersResource
 :offersResource rdf:type owl:ObjectProperty ,
-                         owl:FunctionalProperty .
+                         owl:FunctionalProperty ;
+                rdfs:domain :FLUIDOSNode ;
+                rdfs:range :FLUIDOSResource .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  https://fluidos.eu/ontologies#FlavourOffering
-:FlavourOffering rdf:type owl:Class ;
-                 rdfs:subClassOf :FLUIDOSResource .
+###  https://fluidos.eu/ontologies#ResourceInstance
+:ResourceInstance rdf:type owl:Class ;
+                  rdfs:label "Resource Instance"@en .
+
+
+###  https://fluidos.eu/ontologies#SuperNode
+:SuperNode rdf:type owl:Class ;
+           rdfs:subClassOf :FLUIDOSComponent ;
+           rdf:type :FLUIDOSNode ;
+           rdfs:label "FLUIDOS SuperNode"@en .
 
 
 ###  https://fluidos.eu/ontologies/BandwidthRequirement
@@ -225,7 +263,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/FLUIDOSComponent
 :FLUIDOSComponent rdf:type owl:Class ;
-                  rdfs:comment "Compoent of the FLUIDOS architecture"@en .
+                  rdfs:comment "Componet of the FLUIDOS architecture"@en .
 
 
 ###  https://fluidos.eu/ontologies/FLUIDOSNode
@@ -252,6 +290,11 @@ xsd:date rdf:type rdfs:Datatype .
 :Flavour rdf:type owl:Class ;
          rdfs:subClassOf :FLUIDOSResource ;
          rdfs:comment "An aggregated set of resources offered by a FLUIDOS node"@en .
+
+
+###  https://fluidos.eu/ontologies/FlavourOffering
+:FlavourOffering rdf:type owl:Class ;
+                 rdfs:subClassOf :FLUIDOSResource .
 
 
 ###  https://fluidos.eu/ontologies/Gateways
@@ -399,7 +442,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/SuperNode
 :SuperNode rdf:type owl:Class ;
-           rdfs:subClassOf :FLUIDOSComponent ;
+           rdfs:subClassOf :FLUIDOSNode ;
            rdfs:comment "A SuperNode of the FLUIDOS architectue" ;
            rdfs:label "SuperNode"@en .
 
