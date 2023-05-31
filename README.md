@@ -34,12 +34,12 @@ If you use the FLUIDOS Ontology or code, please consider citing:
 
 ```bib
 @software{ontology,
-author = {FLUIDOS Team},
-month = {4},
-title = {{FLUIDOS Ontology}},
-url = {https://github.com/fludios-project/fluidos-ontology},
-version = {main},
-year = {2023}
+    author = {FLUIDOS Team},
+    month = {4},
+    title = {{FLUIDOS Ontology}},
+    url = {https://github.com/fludios-project/fluidos-ontology},
+    version = {main},
+    year = {2023}
 }
 ```
 
