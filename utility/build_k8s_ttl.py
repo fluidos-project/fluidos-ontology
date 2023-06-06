@@ -106,7 +106,7 @@ def build_property_range(property_spec: list[tuple]) -> tuple[str, bool]:
 
 
 def create_base_uri() -> str:
-    return "https://fluidos.eu/ontologies/kubernetes"
+    return "https://fluidos.eu/ontologies/kubernetes/"
 
 
 def main() -> int:
@@ -120,7 +120,7 @@ def main() -> int:
 
         print()
         print()
-        print(f"### {base_uri}/{resource[-1]}")
+        print(f"### {base_uri}{resource[-1]}")
         print(f":{resource[-1]} rdf:type owl:Class ;")
         print(f"\t rdf:subClassOf :KubernetesComponent ;")
         print(f"\t rdf:label \"{resource[-1]}\"@en ;")
@@ -144,7 +144,7 @@ def main() -> int:
 
         print()
         print()
-        print(f"### {base_uri}/{resource[-1]}Spec")
+        print(f"### {base_uri}{resource[-1]}Spec")
         print(f":{resource[-1]}Spec rdf:type owl:Class ;")
         print(f"\t rdf:subClassOf :KubernetesComponentSpec ;")
         print(f"\t rdf:label \"{resource[-1]}Spec\"@en ;")
@@ -160,7 +160,6 @@ def main() -> int:
                 print(f':{property_name} rdf:type owl:FunctionalProperty ;')
             else:
                 print(f':{property_name} rdf:type owl:ObjectProperty ;')
-            print(f'### {base_uri}#{property_name}')
             print(f'\t rdfs:domain :{resource[-1]}Spec ;')
             print(f'\t rdfs:range {r_type} ;')
             print(f'\t rdf:label "{property_name}"@en .')
