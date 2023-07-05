@@ -388,7 +388,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#namespacesSpec_finalizers
 :namespacesSpec_finalizers rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NamespaceSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "namespacesSpec_finalizers"@en .
 
 
@@ -459,7 +459,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#nodesSpec_podCIDRs
 :nodesSpec_podCIDRs rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NodeSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "nodesSpec_podCIDRs"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#nodesSpec_providerID
@@ -530,7 +530,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#persistentvolumeclaimsSpec_accessModes
 :persistentvolumeclaimsSpec_accessModes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PersistentVolumeClaimSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "persistentvolumeclaimsSpec_accessModes"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#persistentvolumeclaimsSpec_dataSource
@@ -625,7 +625,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#persistentvolumesSpec_accessModes
 :persistentvolumesSpec_accessModes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PersistentVolumeSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "persistentvolumesSpec_accessModes"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#persistentvolumesSpec_awsElasticBlockStore
@@ -727,7 +727,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#persistentvolumesSpec_mountOptions
 :persistentvolumesSpec_mountOptions rdf:type owl:ObjectProperty ;
 	 rdfs:domain :PersistentVolumeSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "persistentvolumesSpec_mountOptions"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#persistentvolumesSpec_nfs
@@ -1244,7 +1244,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#resourcequotasSpec_scopes
 :resourcequotasSpec_scopes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ResourceQuotaSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "resourcequotasSpec_scopes"@en .
 
 
@@ -1419,13 +1419,13 @@
 ### https://fluidos.eu/ontologies/kubernetes/#servicesSpec_clusterIPs
 :servicesSpec_clusterIPs rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "servicesSpec_clusterIPs"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#servicesSpec_externalIPs
 :servicesSpec_externalIPs rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "servicesSpec_externalIPs"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#servicesSpec_externalName
@@ -1455,7 +1455,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#servicesSpec_ipFamilies
 :servicesSpec_ipFamilies rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "servicesSpec_ipFamilies"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#servicesSpec_ipFamilyPolicy
@@ -1479,7 +1479,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#servicesSpec_loadBalancerSourceRanges
 :servicesSpec_loadBalancerSourceRanges rdf:type owl:ObjectProperty ;
 	 rdfs:domain :ServiceSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "servicesSpec_loadBalancerSourceRanges"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#servicesSpec_ports
@@ -2520,7 +2520,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#certificatesigningrequestsSpec_groups
 :certificatesigningrequestsSpec_groups rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CertificateSigningRequestSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "certificatesigningrequestsSpec_groups"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#certificatesigningrequestsSpec_request
@@ -2544,7 +2544,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#certificatesigningrequestsSpec_usages
 :certificatesigningrequestsSpec_usages rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CertificateSigningRequestSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "certificatesigningrequestsSpec_usages"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#certificatesigningrequestsSpec_username
@@ -3116,7 +3116,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#networkpoliciesSpec_policyTypes
 :networkpoliciesSpec_policyTypes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :NetworkPolicySpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "networkpoliciesSpec_policyTypes"@en .
 
 
@@ -3558,7 +3558,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#csidriversSpec_volumeLifecycleModes
 :csidriversSpec_volumeLifecycleModes rdf:type owl:ObjectProperty ;
 	 rdfs:domain :CSIDriverSpec ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "csidriversSpec_volumeLifecycleModes"@en .
 
 
@@ -3707,7 +3707,7 @@
 ### https://fluidos.eu/ontologies/kubernetes/#storageclasses_mountOptions
 :storageclasses_mountOptions rdf:type owl:ObjectProperty ;
 	 rdfs:domain :StorageClass ;
-	 rdfs:range :string ;
+	 rdfs:range xsd:string ;
 	 rdf:label "storageclasses_mountOptions"@en .
 
 ### https://fluidos.eu/ontologies/kubernetes/#storageclasses_parameters

@@ -90,11 +90,11 @@ def build_property_range(property_spec: list[tuple]) -> tuple[str, bool]:
         return 'xsd:string', True
 
     if codomain.startswith('<[]'):
-        return f":{codomain[3:-1]}", False
-#         return f'''[ rdf:type rdf:Bag ;
-#     rdf:first :{codomain[3:-1]} ;
-#     rdf:rest rdf:nil
-# ]'''
+        codomain_type = codomain[3:-1]
+        if codomain_type == 'string':
+            return 'xsd:string', False
+        return f":{codomain_type}", False
+
     if codomain.startswith('<map[string][]string'):
         return 'xsd:string', False
     if codomain.startswith('<map[string]string>'):
@@ -154,6 +154,8 @@ def main() -> int:
         for obj_property in obj_spec:
             property_name = build_property_name(resource[0]+"Spec", obj_property[0])
             r_type, is_functional = build_property_range(obj_property)
+            if r_type == ':string':
+                raise Exception(f"{r_type}, {obj_property}")
             print()
             print(f'### {base_uri}#{property_name}')
             if is_functional:
