@@ -16,8 +16,6 @@
 
 <https://fluidos.eu/ontologies> rdf:type owl:Ontology ;
                                  owl:versionIRI <https://fluidos.eu/ontologies/1.1.0> ;
-offline_data_location = "offline_data"
-charts_location = "offline_data"
                                  <http://purl.org/dc/elements/1.1/creator> "IBM Research Europe" ;
                                  <http://purl.org/dc/elements/1.1/publisher> "IBM Research Europe" ,
                                                                              "This ontology describes a schema for specifying resource and functional element requirements and offering within the FLUIDOS Horizon Europe project" ;
