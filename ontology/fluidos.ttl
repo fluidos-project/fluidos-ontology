@@ -67,10 +67,18 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://fluidos.eu/ontologies#hasKubernetesComponent
-:hasKubernetesComponent rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf :hasNode ;
-                        rdfs:domain :Cluster .
+###  https://fluidos.eu/ontologies#aggregatesResources
+:aggregatesResources rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :Flavour ;
+                     rdfs:range :ResourceInstance .
+
+
+###  https://fluidos.eu/ontologies#hasRequirement
+:hasRequirement rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Intent ;
+                rdfs:range :IntentRequest .
 
 
 ###  https://fluidos.eu/ontologies/belongsToDomain
@@ -95,6 +103,12 @@ xsd:date rdf:type rdfs:Datatype .
 :hasIntentRequest rdf:type owl:ObjectProperty ;
                   rdfs:domain :Intent ;
                   rdfs:range :IntentRequest .
+
+
+###  https://fluidos.eu/ontologies/hasKubernetesComponent
+:hasKubernetesComponent rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :hasNode ;
+                        rdfs:domain :Cluster .
 
 
 ###  https://fluidos.eu/ontologies/hasMemory
@@ -204,14 +218,19 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  https://fluidos.eu/ontologies#LocalStorage
-:LocalStorage rdf:type owl:Class ;
-              rdfs:subClassOf :Storage .
+###  https://fluidos.eu/ontologies#PerformanceRequest
+:PerformanceRequest rdf:type owl:Class ;
+                    rdfs:subClassOf :IntentRequest .
 
 
-###  https://fluidos.eu/ontologies#RemoteStorage
-:RemoteStorage rdf:type owl:Class ;
-               rdfs:subClassOf :Storage .
+###  https://fluidos.eu/ontologies#ServiceAccessRequest
+:ServiceAccessRequest rdf:type owl:Class ;
+                      rdfs:subClassOf :ServiceRequest .
+
+
+###  https://fluidos.eu/ontologies#ServiceInstanceRequest
+:ServiceInstanceRequest rdf:type owl:Class ;
+                        rdfs:subClassOf :ServiceRequest .
 
 
 ###  https://fluidos.eu/ontologies/BandwidthRequirement
@@ -247,7 +266,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/ComplianceRequirement
 :ComplianceRequirement rdf:type owl:Class ;
-                      rdfs:subClassOf :ContextualCharacteristic .
+                       rdfs:subClassOf :ContextualCharacteristic .
 
 
 ###  https://fluidos.eu/ontologies/Computational
@@ -339,6 +358,11 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:subClassOf :HardwareResource .
 
 
+###  https://fluidos.eu/ontologies/LocalStorage
+:LocalStorage rdf:type owl:Class ;
+              rdfs:subClassOf :Storage .
+
+
 ###  https://fluidos.eu/ontologies/Memory
 :Memory rdf:type owl:Class ;
         rdfs:subClassOf :HardwareResource .
@@ -399,6 +423,11 @@ xsd:date rdf:type rdfs:Datatype .
                    rdfs:subClassOf :GeographicalLocation .
 
 
+###  https://fluidos.eu/ontologies/RemoteStorage
+:RemoteStorage rdf:type owl:Class ;
+               rdfs:subClassOf :Storage .
+
+
 ###  https://fluidos.eu/ontologies/Resource
 :Resource rdf:type owl:Class .
 
@@ -430,7 +459,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/ServiceRequest
 :ServiceRequest rdf:type owl:Class ;
-                rdfs:subClassOf :IntentRequest .
+                rdfs:subClassOf :IntentRequest ;
+                rdfs:comment "Request for service instance" .
 
 
 ###  https://fluidos.eu/ontologies/Storage
@@ -457,51 +487,6 @@ xsd:date rdf:type rdfs:Datatype .
 #    Individuals
 #################################################################
 
-###  https://fluidos.eu/ontologies#AURIX_-_TC3xx
-:AURIX_-_TC3xx rdf:type owl:NamedIndividual ,
-                        :Gateways .
-
-
-###  https://fluidos.eu/ontologies#Cortex-A7
-:Cortex-A7 rdf:type owl:NamedIndividual ,
-                    :Gateways .
-
-
-###  https://fluidos.eu/ontologies#Cortex-A9
-:Cortex-A9 rdf:type owl:NamedIndividual ,
-                    :Gateways .
-
-
-###  https://fluidos.eu/ontologies#Cortex-M4
-:Cortex-M4 rdf:type owl:NamedIndividual ,
-                    :LeafNode .
-
-
-###  https://fluidos.eu/ontologies#Cortex-M7
-:Cortex-M7 rdf:type owl:NamedIndividual ,
-                    :LeafNode .
-
-
-###  https://fluidos.eu/ontologies#Intel_Atom
-:Intel_Atom rdf:type owl:NamedIndividual ,
-                     :Gateways .
-
-
-###  https://fluidos.eu/ontologies#RPi_4
-:RPi_4 rdf:type owl:NamedIndividual ,
-                :Gateways .
-
-
-###  https://fluidos.eu/ontologies#TheThingStackService
-:TheThingStackService rdf:type owl:NamedIndividual ,
-                               :RuntimeService .
-
-
-###  https://fluidos.eu/ontologies#i.MX8M_Quad_Core_Cortex_A53
-:i.MX8M_Quad_Core_Cortex_A53 rdf:type owl:NamedIndividual ,
-                                      :Gateways .
-
-
 ###  https://fluidos.eu/ontologies#ISO/IEC_27001
 <https://fluidos.eu/ontologies#ISO/IEC_27001> rdf:type owl:NamedIndividual ,
                                                        :SecurityStandard ;
@@ -511,6 +496,11 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://fluidos.eu/ontologies/ARM64
 :ARM64 rdf:type owl:NamedIndividual ,
                 :ProcessorArchitecture .
+
+
+###  https://fluidos.eu/ontologies/AURIX_-_TC3xx
+:AURIX_-_TC3xx rdf:type owl:NamedIndividual ,
+                        :Gateways .
 
 
 ###  https://fluidos.eu/ontologies/CCPA
@@ -543,6 +533,26 @@ xsd:date rdf:type rdfs:Datatype .
                          :NodeCondition .
 
 
+###  https://fluidos.eu/ontologies/Cortex-A7
+:Cortex-A7 rdf:type owl:NamedIndividual ,
+                    :Gateways .
+
+
+###  https://fluidos.eu/ontologies/Cortex-A9
+:Cortex-A9 rdf:type owl:NamedIndividual ,
+                    :Gateways .
+
+
+###  https://fluidos.eu/ontologies/Cortex-M4
+:Cortex-M4 rdf:type owl:NamedIndividual ,
+                    :LeafNode .
+
+
+###  https://fluidos.eu/ontologies/Cortex-M7
+:Cortex-M7 rdf:type owl:NamedIndividual ,
+                    :LeafNode .
+
+
 ###  https://fluidos.eu/ontologies/GDPR
 :GDPR rdf:type owl:NamedIndividual ,
                :PrivacyRequirement ;
@@ -559,6 +569,11 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://fluidos.eu/ontologies/HIPAA
 :HIPAA rdf:type owl:NamedIndividual ,
                 :PrivacyRequirement .
+
+
+###  https://fluidos.eu/ontologies/Intel_Atom
+:Intel_Atom rdf:type owl:NamedIndividual ,
+                     :Gateways .
 
 
 ###  https://fluidos.eu/ontologies/NIST
@@ -585,6 +600,11 @@ xsd:date rdf:type rdfs:Datatype .
        rdfs:label "Payment Service Directive"@en .
 
 
+###  https://fluidos.eu/ontologies/RPi_4
+:RPi_4 rdf:type owl:NamedIndividual ,
+                :Gateways .
+
+
 ###  https://fluidos.eu/ontologies/SOX
 :SOX rdf:type owl:NamedIndividual ,
               :SecurityStandard .
@@ -595,6 +615,11 @@ xsd:date rdf:type rdfs:Datatype .
                     :FLUIDOSNode .
 
 
+###  https://fluidos.eu/ontologies/TheThingStackService
+:TheThingStackService rdf:type owl:NamedIndividual ,
+                               :RuntimeService .
+
+
 ###  https://fluidos.eu/ontologies/UK-GDPR
 :UK-GDPR rdf:type owl:NamedIndividual ,
                   :PrivacyRequirement .
@@ -603,6 +628,11 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://fluidos.eu/ontologies/X86_64
 :X86_64 rdf:type owl:NamedIndividual ,
                  :ProcessorArchitecture .
+
+
+###  https://fluidos.eu/ontologies/i.MX8M_Quad_Core_Cortex_A53
+:i.MX8M_Quad_Core_Cortex_A53 rdf:type owl:NamedIndividual ,
+                                      :Gateways .
 
 
 #################################################################
