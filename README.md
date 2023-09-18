@@ -2,7 +2,7 @@
 
 [![format](https://img.shields.io/badge/Ontology_Format-TTL-blue)](https://pages.github.com/fluidos-project/fluidos-ontology/ontology.ttl)
 [![specification](https://img.shields.io/badge/Ontology_Specification-Docs-yellow)](https://pages.github.com/fluidos-project/fluidos-ontology/ontology-specification/)
-[![visualize](https://img.shields.io/badge/Visualize-WebVOWL-blue)](https://pages.github.com/fluidos-project/fluidos-ontology/ontology-specification/webvowl/index.html#)
+[![visualize](https://img.shields.io/badge/Visualize-WebVOWL-blue)](https://github.com/fluidos-project/fluidos-ontology/webvowl/index.html#)
 [![license](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 [![user guide](https://img.shields.io/badge/User_Guide-Docs-yellow)](https://pages.github.com/fluidos-project/fluidos-ontology/)
 
