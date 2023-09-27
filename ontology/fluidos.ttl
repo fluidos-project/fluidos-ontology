@@ -16,9 +16,9 @@
 
 <https://fluidos.eu/ontologies> rdf:type owl:Ontology ;
                                  owl:versionIRI <https://fluidos.eu/ontologies/1.1.0> ;
-                                 <http://purl.org/dc/elements/1.1/creator> "IBM Research Europe" ;
-                                 <http://purl.org/dc/elements/1.1/publisher> "IBM Research Europe" ,
-                                                                             "This ontology describes a schema for specifying resource and functional element requirements and offering within the FLUIDOS Horizon Europe project" ;
+                                 <http://purl.org/dc/elements/1.1/creator> "FLUIDOS Consortium"@en ;
+                                 <http://purl.org/dc/elements/1.1/description> "This ontology describes a schema for specifying resource and functional element requirements and offering within the FLUIDOS Horizon Europe project"@en ;
+                                 <http://purl.org/dc/elements/1.1/publisher> "IBM Research Europe" ;
                                  dcterms:created "2023-09-15"^^xsd:date ,
                                                  "FLUIDOS Resource and Functional Requirements Ontology" ;
                                  owl:versionInfo "0.0.1" .
@@ -33,6 +33,10 @@
 
 ###  http://purl.org/dc/elements/1.1/creator
 <http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/publisher
@@ -67,18 +71,11 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://fluidos.eu/ontologies#aggregatesResources
+###  https://fluidos.eu/ontologies/aggregatesResources
 :aggregatesResources rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf owl:topObjectProperty ;
                      rdfs:domain :Flavour ;
                      rdfs:range :ResourceInstance .
-
-
-###  https://fluidos.eu/ontologies#hasRequirement
-:hasRequirement rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf owl:topObjectProperty ;
-                rdfs:domain :Intent ;
-                rdfs:range :IntentRequest .
 
 
 ###  https://fluidos.eu/ontologies/belongsToDomain
@@ -105,20 +102,10 @@ xsd:date rdf:type rdfs:Datatype .
                   rdfs:range :IntentRequest .
 
 
-###  https://fluidos.eu/ontologies/hasKubernetesComponent
-:hasKubernetesComponent rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf :hasNode ;
-                        rdfs:domain :Cluster .
-
-
 ###  https://fluidos.eu/ontologies/hasMemory
 :hasMemory rdf:type owl:ObjectProperty ,
-                    owl:FunctionalProperty .
-
-
-###  https://fluidos.eu/ontologies/hasMetadata
-:hasMetadata rdf:type owl:ObjectProperty ;
-             rdfs:label "metadata" .
+                    owl:FunctionalProperty ;
+           rdfs:domain k8s:Node .
 
 
 ###  https://fluidos.eu/ontologies/hasName
@@ -136,14 +123,21 @@ xsd:date rdf:type rdfs:Datatype .
 :hasNode rdf:type owl:ObjectProperty ,
                   owl:InverseFunctionalProperty ;
          rdfs:domain :Cluster ;
-         rdfs:range :Node .
+         rdfs:range  k8s:Node .
 
 
 ###  https://fluidos.eu/ontologies/hasProcessor
 :hasProcessor rdf:type owl:ObjectProperty ,
                        owl:FunctionalProperty ;
-              rdfs:domain :Node ;
+              rdfs:domain k8s:Node ;  
               rdfs:range :Processor .
+
+
+###  https://fluidos.eu/ontologies/hasRequirement
+:hasRequirement rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Intent ;
+                rdfs:range :IntentRequest .
 
 
 ###  https://fluidos.eu/ontologies/hasResourceOffering
@@ -217,21 +211,6 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 #    Classes
 #################################################################
-
-###  https://fluidos.eu/ontologies#PerformanceRequest
-:PerformanceRequest rdf:type owl:Class ;
-                    rdfs:subClassOf :IntentRequest .
-
-
-###  https://fluidos.eu/ontologies#ServiceAccessRequest
-:ServiceAccessRequest rdf:type owl:Class ;
-                      rdfs:subClassOf :ServiceRequest .
-
-
-###  https://fluidos.eu/ontologies#ServiceInstanceRequest
-:ServiceInstanceRequest rdf:type owl:Class ;
-                        rdfs:subClassOf :ServiceRequest .
-
 
 ###  https://fluidos.eu/ontologies/BandwidthRequirement
 :BandwidthRequirement rdf:type owl:Class ;
@@ -380,14 +359,9 @@ xsd:date rdf:type rdfs:Datatype .
                   rdfs:label "Network Interface"@en .
 
 
-###  https://fluidos.eu/ontologies/Node
-:Node rdf:type owl:Class ;
-      rdfs:comment "A node of a Kubernetes cluster"@en ;
-      rdfs:label "Node"@en .
-
-
-###  https://fluidos.eu/ontologies/NodeCondition
-:NodeCondition rdf:type owl:Class .
+###  https://fluidos.eu/ontologies/PerformanceRequest
+:PerformanceRequest rdf:type owl:Class ;
+                    rdfs:subClassOf :IntentRequest .
 
 
 ###  https://fluidos.eu/ontologies/PerformanceRequirement
@@ -457,6 +431,16 @@ xsd:date rdf:type rdfs:Datatype .
         rdfs:subClassOf :HardwareResource .
 
 
+###  https://fluidos.eu/ontologies/ServiceAccessRequest
+:ServiceAccessRequest rdf:type owl:Class ;
+                      rdfs:subClassOf :ServiceRequest .
+
+
+###  https://fluidos.eu/ontologies/ServiceInstanceRequest
+:ServiceInstanceRequest rdf:type owl:Class ;
+                        rdfs:subClassOf :ServiceRequest .
+
+
 ###  https://fluidos.eu/ontologies/ServiceRequest
 :ServiceRequest rdf:type owl:Class ;
                 rdfs:subClassOf :IntentRequest ;
@@ -506,31 +490,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://fluidos.eu/ontologies/CCPA
 :CCPA rdf:type owl:NamedIndividual ,
                :PrivacyRequirement .
-
-
-###  https://fluidos.eu/ontologies/ConditionDiskPressure
-:ConditionDiskPressure rdf:type owl:NamedIndividual ,
-                                :NodeCondition .
-
-
-###  https://fluidos.eu/ontologies/ConditionMemoryPressure
-:ConditionMemoryPressure rdf:type owl:NamedIndividual ,
-                                  :NodeCondition .
-
-
-###  https://fluidos.eu/ontologies/ConditionNetworkUnavailable
-:ConditionNetworkUnavailable rdf:type owl:NamedIndividual ,
-                                      :NodeCondition .
-
-
-###  https://fluidos.eu/ontologies/ConditionPIDPressure
-:ConditionPIDPressure rdf:type owl:NamedIndividual ,
-                               :NodeCondition .
-
-
-###  https://fluidos.eu/ontologies/ConditionReady
-:ConditionReady rdf:type owl:NamedIndividual ,
-                         :NodeCondition .
 
 
 ###  https://fluidos.eu/ontologies/Cortex-A7
