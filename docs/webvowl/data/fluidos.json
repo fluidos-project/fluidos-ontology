@@ -1,0 +1,1649 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2002/07/owl", "http://www.w3.org/2000/01/rdf-schema", "https://fluidos.eu/ontologies", "http://www.w3.org/2001/XMLSchema" ],
+    "prefixList" : {
+      "owl" : "http://www.w3.org/2002/07/owl#",
+      "k8s" : "https://fluidos.eu/ontologies/kubernetes",
+      "dcterms" : "http://purl.org/dc/terms/",
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "net" : "http://www.w3.org/2007/uwa/context/network.owl#",
+      "prov" : "http://www.w3.org/ns/prov#",
+      "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+      "oboInOwl" : "http://www.geneontology.org/formats/oboInOwl#",
+      "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "hardware" : "http://www.w3.org/2007/uwa/context/hardware.owl#",
+      "skos" : "http://www.w3.org/2004/02/skos/core#",
+      "" : "https://fluidos.eu/ontologies/",
+      "dc" : "http://purl.org/dc/elements/1.1",
+      "xml" : "http://www.w3.org/XML/1998/namespace"
+    },
+    "iri" : "https://fluidos.eu/ontologies",
+    "version" : "0.0.1",
+    "author" : [ "IBM Research Europe" ],
+    "other" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "IBM Research Europe",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "FLUIDOS Resource and Functional Requirements Ontology",
+        "type" : "label"
+      }, {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2023-09-15",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "IBM Research Europe",
+        "type" : "label"
+      }, {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "This ontology describes a schema for specifying resource and functional element requirements and offering within the FLUIDOS Horizon Europe project",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.0.1",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "47",
+    "type" : "owl:Class"
+  }, {
+    "id" : "49",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "57",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "67",
+    "type" : "owl:Class"
+  }, {
+    "id" : "68",
+    "type" : "owl:Class"
+  }, {
+    "id" : "69",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "53",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "59",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "43",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "106",
+    "type" : "owl:Class"
+  }, {
+    "id" : "45",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "107",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:Class"
+  }, {
+    "id" : "103",
+    "type" : "owl:Class"
+  }, {
+    "id" : "86",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "102",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "89",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "93",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "109",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "73",
+    "type" : "owl:Class"
+  }, {
+    "id" : "80",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "78",
+    "type" : "owl:Class"
+  }, {
+    "id" : "70",
+    "type" : "owl:Class"
+  }, {
+    "id" : "62",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  }, {
+    "id" : "84",
+    "type" : "owl:Class"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "82",
+    "type" : "owl:Class"
+  }, {
+    "id" : "83",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://fluidos.eu/ontologies/Battery",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Battery"
+    },
+    "attributes" : [ "external" ],
+    "id" : "0",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Sensor",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Sensor"
+    },
+    "attributes" : [ "external" ],
+    "id" : "4",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Storage",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Storage"
+    },
+    "subClasses" : [ "6", "7" ],
+    "attributes" : [ "external" ],
+    "id" : "5",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Gateways",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Gateways"
+    },
+    "individuals" : [ {
+      "iri" : "https://fluidos.eu/ontologies/Intel_Atom",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "Intel_Atom"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/Cortex-A7",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "Cortex-A7"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/i.MX8M_Quad_Core_Cortex_A53",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "i.MX8M_Quad_Core_Cortex_A53"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/Cortex-A9",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "Cortex-A9"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/AURIX_-_TC3xx",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "AURIX_-_TC3xx"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/RPi_4",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "RPi_4"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "3",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/RuntimeService",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RuntimeService"
+    },
+    "individuals" : [ {
+      "iri" : "https://fluidos.eu/ontologies/TheThingStackService",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "TheThingStackService"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "18",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/SuperNode",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SuperNode",
+      "en" : "SuperNode"
+    },
+    "comment" : {
+      "undefined" : "A SuperNode of the FLUIDOS architectue"
+    },
+    "attributes" : [ "external" ],
+    "id" : "19",
+    "superClasses" : [ "10", "20" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Domain",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Domain"
+    },
+    "comment" : {
+      "en" : "FLUIDOS admnistrative domain"
+    },
+    "attributes" : [ "external" ],
+    "id" : "9",
+    "superClasses" : [ "20" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ThroughputRequirement",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ThroughputRequirement"
+    },
+    "attributes" : [ "external" ],
+    "id" : "47",
+    "superClasses" : [ "48" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Processor",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Processor"
+    },
+    "attributes" : [ "external" ],
+    "id" : "49",
+    "superClasses" : [ "50" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/FLUIDOSNode",
+    "equivalent" : [ "53" ],
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 1,
+    "label" : {
+      "IRI-based" : "FLUIDOSNode",
+      "en" : "FLUIDOS Node"
+    },
+    "subClasses" : [ "19" ],
+    "comment" : {
+      "en" : "A node of the FLUIDOS continuum"
+    },
+    "attributes" : [ "external", "equivalent" ],
+    "id" : "10",
+    "superClasses" : [ "20" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/NetworkInterface",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NetworkInterface",
+      "en" : "Network Interface"
+    },
+    "comment" : {
+      "undefined" : "Specification of a network interface"
+    },
+    "attributes" : [ "external" ],
+    "id" : "57",
+    "superClasses" : [ "29" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Resource",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Resource"
+    },
+    "subClasses" : [ "18", "1" ],
+    "attributes" : [ "external" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/LatencyRequirement",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LatencyRequirement"
+    },
+    "attributes" : [ "external" ],
+    "id" : "67",
+    "superClasses" : [ "48" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ProcessorType",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ProcessorType",
+      "en" : "ProcessorType"
+    },
+    "comment" : {
+      "en" : "The description of a processor type"
+    },
+    "attributes" : [ "external" ],
+    "id" : "68",
+    "superClasses" : [ "50" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/GraphicCard",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "GraphicCard",
+      "en" : "GPUType"
+    },
+    "comment" : {
+      "en" : "Graphical Processing Unit Type"
+    },
+    "attributes" : [ "external" ],
+    "id" : "69",
+    "superClasses" : [ "50" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/GeographicalLocation",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "GeographicalLocation"
+    },
+    "subClasses" : [ "34" ],
+    "attributes" : [ "external" ],
+    "id" : "35",
+    "superClasses" : [ "70" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Cluster",
+    "equivalent" : [ "10" ],
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Cluster",
+      "en" : "Cluster"
+    },
+    "comment" : {
+      "undefined" : "A cluster of kubernetes nodes"
+    },
+    "attributes" : [ "external", "equivalent" ],
+    "id" : "53"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/HardwareResource",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "HardwareResource"
+    },
+    "subClasses" : [ "0", "29", "4", "5", "24", "22", "3", "50" ],
+    "attributes" : [ "external" ],
+    "id" : "1",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/LocalStorage",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LocalStorage"
+    },
+    "attributes" : [ "external" ],
+    "id" : "6",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/FLUIDOSNodeComponent",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FLUIDOSNodeComponent"
+    },
+    "subClasses" : [ "83", "84" ],
+    "attributes" : [ "external" ],
+    "id" : "59",
+    "superClasses" : [ "20" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ResourceInstance",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ResourceInstance",
+      "en" : "Resource Instance"
+    },
+    "attributes" : [ "external" ],
+    "id" : "12"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ServiceAccessRequest",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ServiceAccessRequest"
+    },
+    "attributes" : [ "external" ],
+    "id" : "43",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/IntentRequest",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "IntentRequest"
+    },
+    "subClasses" : [ "102", "41", "103" ],
+    "attributes" : [ "external" ],
+    "id" : "46"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Node",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Node",
+      "en" : "Node"
+    },
+    "comment" : {
+      "en" : "A node of a Kubernetes cluster"
+    },
+    "attributes" : [ "external" ],
+    "id" : "106"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Intent",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Intent"
+    },
+    "attributes" : [ "external" ],
+    "id" : "45"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Memory",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Memory"
+    },
+    "attributes" : [ "external" ],
+    "id" : "22",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/CatalogueViewPolicy",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CatalogueViewPolicy"
+    },
+    "attributes" : [ "external" ],
+    "id" : "107"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Communication",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Communication"
+    },
+    "subClasses" : [ "57" ],
+    "attributes" : [ "external" ],
+    "id" : "29",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ResourceRequest",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ResourceRequest"
+    },
+    "attributes" : [ "external" ],
+    "id" : "103",
+    "superClasses" : [ "46" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Flavour",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Flavour"
+    },
+    "comment" : {
+      "en" : "An aggregated set of resources offered by a FLUIDOS node"
+    },
+    "attributes" : [ "external" ],
+    "id" : "86"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/FLUIDOSComponent",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FLUIDOSComponent"
+    },
+    "subClasses" : [ "19", "59", "10", "62", "9" ],
+    "comment" : {
+      "en" : "Componet of the FLUIDOS architecture"
+    },
+    "attributes" : [ "external" ],
+    "id" : "20"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/PrivacyRequirement",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PrivacyRequirement"
+    },
+    "individuals" : [ {
+      "iri" : "https://fluidos.eu/ontologies/CCPA",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "CCPA"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/UK-GDPR",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "UK-GDPR"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/GDPR",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "GDPR",
+        "en" : "General Data Protection Regulation"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/HIPAA",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "HIPAA"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "37",
+    "superClasses" : [ "38" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/PerformanceRequest",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PerformanceRequest"
+    },
+    "attributes" : [ "external" ],
+    "id" : "102",
+    "superClasses" : [ "46" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/LeafNode",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LeafNode"
+    },
+    "individuals" : [ {
+      "iri" : "https://fluidos.eu/ontologies/Cortex-M7",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "Cortex-M7"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/Cortex-M4",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "Cortex-M4"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "24",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "17",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "89",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "93",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/NodeCondition",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NodeCondition"
+    },
+    "individuals" : [ {
+      "iri" : "https://fluidos.eu/ontologies/ConditionMemoryPressure",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "ConditionMemoryPressure"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/ConditionPIDPressure",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "ConditionPIDPressure"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/ConditionReady",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "ConditionReady"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/ConditionNetworkUnavailable",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "ConditionNetworkUnavailable"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/ConditionDiskPressure",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "ConditionDiskPressure"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "109"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/RemoteStorage",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RemoteStorage"
+    },
+    "attributes" : [ "external" ],
+    "id" : "7",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ComplianceRequirement",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ComplianceRequirement"
+    },
+    "subClasses" : [ "55", "37" ],
+    "attributes" : [ "external" ],
+    "id" : "38",
+    "superClasses" : [ "70" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/IOPSRequirement",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "IOPSRequirement"
+    },
+    "comment" : {
+      "en" : "I/O operation per seconds"
+    },
+    "attributes" : [ "external" ],
+    "id" : "73",
+    "superClasses" : [ "48" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ProcessorArchitecture",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ProcessorArchitecture",
+      "en" : "Processor Architecture"
+    },
+    "individuals" : [ {
+      "iri" : "https://fluidos.eu/ontologies/ARM64",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "ARM64"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/X86_64",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "X86_64"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/POWER",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "POWER"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "80",
+    "superClasses" : [ "50" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "25",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ProximityLocation",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ProximityLocation"
+    },
+    "attributes" : [ "external" ],
+    "id" : "34",
+    "superClasses" : [ "35" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ServiceRequest",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ServiceRequest"
+    },
+    "subClasses" : [ "43", "40" ],
+    "comment" : {
+      "undefined" : "Request for service instance"
+    },
+    "attributes" : [ "external" ],
+    "id" : "41",
+    "superClasses" : [ "46" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ServiceInstanceRequest",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ServiceInstanceRequest"
+    },
+    "attributes" : [ "external" ],
+    "id" : "40",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/BandwidthRequirement",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "BandwidthRequirement"
+    },
+    "attributes" : [ "external" ],
+    "id" : "78",
+    "superClasses" : [ "48" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/ContextualCharacteristic",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ContextualCharacteristic"
+    },
+    "subClasses" : [ "35", "48", "38" ],
+    "comment" : {
+      "en" : "Contextual characteristics of a FLUIDOS node"
+    },
+    "attributes" : [ "external" ],
+    "id" : "70"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Catalogue",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Catalogue"
+    },
+    "attributes" : [ "external" ],
+    "id" : "62",
+    "superClasses" : [ "20" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/SecurityStandard",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SecurityStandard"
+    },
+    "individuals" : [ {
+      "iri" : "https://fluidos.eu/ontologies#ISO/IEC_27001",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "https://www.iso.org/isoiec-27001-information-security.html",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "ISO/IEC_27001"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/GLBA",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "https://fluidos.eu/ontologies/",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "GLBA",
+        "en" : "Gramm Leach Bliley Act"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/PSD_2",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "PSD_2",
+        "en" : "Payment Service Directive"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/PCI_DSS",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "https://www.pcisecuritystandards.org/",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "Payment Card Industry (PCI) Data Security Standards (DSS)"
+      },
+      "labels" : {
+        "IRI-based" : "PCI_DSS",
+        "en" : "PCI DSS"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/NIST",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "NIST"
+      }
+    }, {
+      "iri" : "https://fluidos.eu/ontologies/SOX",
+      "baseIri" : "https://fluidos.eu/ontologies",
+      "labels" : {
+        "IRI-based" : "SOX"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "55",
+    "superClasses" : [ "38" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/Computational",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Computational"
+    },
+    "subClasses" : [ "49", "68", "69", "80" ],
+    "attributes" : [ "external" ],
+    "id" : "50",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/DiscoveryManager",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DiscoveryManager"
+    },
+    "attributes" : [ "external" ],
+    "id" : "84",
+    "superClasses" : [ "59" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/PerformanceRequirement",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PerformanceRequirement"
+    },
+    "subClasses" : [ "78", "67", "73", "47" ],
+    "attributes" : [ "external" ],
+    "id" : "48",
+    "superClasses" : [ "70" ]
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/UnitType",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "UnitType"
+    },
+    "attributes" : [ "external" ],
+    "id" : "82"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/MetaOrchestrator",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MetaOrchestrator"
+    },
+    "attributes" : [ "external" ],
+    "id" : "83",
+    "superClasses" : [ "59" ]
+  } ],
+  "property" : [ {
+    "id" : "2",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "8",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "11",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "15",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "16",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "30",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "33",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "36",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "44",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "56",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "58",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "60",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "63",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "64",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "65",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "66",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "71",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "72",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "74",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "75",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "77",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "79",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "81",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "85",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "87",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "88",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "26",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "91",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "92",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "27",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "95",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "96",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "97",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "98",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "99",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "100",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "101",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "104",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "105",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "108",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "94",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "110",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "111",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "112",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "113",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "114",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "115",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "116",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "117",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "range" : "1",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "2"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/managesNode",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "managesNode"
+    },
+    "domain" : "9",
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "8"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/resourceInstanceType",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "resourceInstanceType"
+    },
+    "superproperty" : [ "14" ],
+    "domain" : "12",
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "11"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/offersResource",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "offersResource"
+    },
+    "domain" : "10",
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "15"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/resourceInstanceQuantity",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "resourceInstanceQuantity"
+    },
+    "domain" : "12",
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "16"
+  }, {
+    "range" : "1",
+    "domain" : "22",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "21"
+  }, {
+    "range" : "1",
+    "domain" : "24",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#topObjectProperty",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "topObjectProperty"
+    },
+    "domain" : "25",
+    "subproperty" : [ "11", "26", "27" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "14"
+  }, {
+    "range" : "1",
+    "domain" : "29",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "28"
+  }, {
+    "range" : "1",
+    "domain" : "0",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "30"
+  }, {
+    "range" : "1",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "31"
+  }, {
+    "range" : "1",
+    "domain" : "4",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "32"
+  }, {
+    "range" : "35",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "33"
+  }, {
+    "range" : "38",
+    "domain" : "37",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "36"
+  }, {
+    "range" : "41",
+    "domain" : "40",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "39"
+  }, {
+    "range" : "41",
+    "domain" : "43",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "42"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasIntentRequest",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "46",
+    "label" : {
+      "IRI-based" : "hasIntentRequest"
+    },
+    "domain" : "45",
+    "attributes" : [ "external", "object" ],
+    "id" : "44"
+  }, {
+    "range" : "13",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "51"
+  }, {
+    "range" : "13",
+    "domain" : "18",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "52"
+  }, {
+    "range" : "38",
+    "domain" : "55",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "54"
+  }, {
+    "range" : "20",
+    "domain" : "10",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "56"
+  }, {
+    "range" : "20",
+    "domain" : "59",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "58"
+  }, {
+    "range" : "20",
+    "domain" : "9",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "60"
+  }, {
+    "range" : "20",
+    "domain" : "62",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "61"
+  }, {
+    "range" : "29",
+    "domain" : "57",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "63"
+  }, {
+    "range" : "20",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "64"
+  }, {
+    "range" : "10",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "65"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasApiVersion",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "hasApiVersion",
+      "undefined" : "apiVersion"
+    },
+    "domain" : "25",
+    "attributes" : [ "external", "object" ],
+    "id" : "66"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasSuperNode",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "hasSuperNode"
+    },
+    "domain" : "10",
+    "attributes" : [ "inverse functional", "external", "object" ],
+    "id" : "71"
+  }, {
+    "range" : "48",
+    "domain" : "73",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "72"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasName",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "hasName"
+    },
+    "domain" : "25",
+    "attributes" : [ "inverse functional", "external", "functional", "object", "symmetric" ],
+    "id" : "74"
+  }, {
+    "range" : "48",
+    "domain" : "67",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "75"
+  }, {
+    "range" : "48",
+    "domain" : "47",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "76"
+  }, {
+    "range" : "48",
+    "domain" : "78",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "77"
+  }, {
+    "range" : "50",
+    "domain" : "80",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "79"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/resourceInstanceUnitType",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "82",
+    "label" : {
+      "IRI-based" : "resourceInstanceUnitType"
+    },
+    "domain" : "12",
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "81"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasUUID",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "hasUUID",
+      "en" : "HasUniqueIdentifier"
+    },
+    "domain" : "86",
+    "attributes" : [ "inverse functional", "external", "functional", "object" ],
+    "id" : "85"
+  }, {
+    "range" : "50",
+    "domain" : "69",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "87"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#topDataProperty",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "range" : "89",
+    "label" : {
+      "IRI-based" : "topDataProperty"
+    },
+    "domain" : "25",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "88"
+  }, {
+    "range" : "59",
+    "domain" : "84",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "90"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasRequirement",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "46",
+    "label" : {
+      "IRI-based" : "hasRequirement"
+    },
+    "superproperty" : [ "14" ],
+    "domain" : "45",
+    "attributes" : [ "external", "object" ],
+    "id" : "26"
+  }, {
+    "range" : "59",
+    "domain" : "83",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "91"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasKubernetesComponent",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "93",
+    "label" : {
+      "IRI-based" : "hasKubernetesComponent"
+    },
+    "superproperty" : [ "94" ],
+    "domain" : "53",
+    "attributes" : [ "external", "object" ],
+    "id" : "92"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/aggregatesResources",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "aggregatesResources"
+    },
+    "superproperty" : [ "14" ],
+    "domain" : "86",
+    "attributes" : [ "external", "object" ],
+    "id" : "27"
+  }, {
+    "range" : "50",
+    "domain" : "68",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "95"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasMemory",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "hasMemory"
+    },
+    "domain" : "25",
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "96"
+  }, {
+    "range" : "50",
+    "domain" : "49",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "97"
+  }, {
+    "range" : "70",
+    "domain" : "35",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "98"
+  }, {
+    "range" : "1",
+    "domain" : "50",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "99"
+  }, {
+    "range" : "70",
+    "domain" : "38",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "100"
+  }, {
+    "range" : "70",
+    "domain" : "48",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "101"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasResourceOffering",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "hasResourceOffering"
+    },
+    "domain" : "62",
+    "attributes" : [ "external", "object" ],
+    "id" : "104"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/belongsToDomain",
+    "inverse" : "8",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "belongsToDomain"
+    },
+    "domain" : "10",
+    "attributes" : [ "inverse functional", "external", "functional", "object" ],
+    "id" : "105"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasProcessor",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "49",
+    "label" : {
+      "IRI-based" : "hasProcessor"
+    },
+    "domain" : "106",
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "108"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasNode",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "106",
+    "label" : {
+      "IRI-based" : "hasNode"
+    },
+    "domain" : "53",
+    "subproperty" : [ "92" ],
+    "attributes" : [ "inverse functional", "external", "object" ],
+    "id" : "94"
+  }, {
+    "range" : "46",
+    "domain" : "102",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "110"
+  }, {
+    "range" : "46",
+    "domain" : "41",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "111"
+  }, {
+    "range" : "46",
+    "domain" : "103",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "112"
+  }, {
+    "range" : "5",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "113"
+  }, {
+    "range" : "5",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "114"
+  }, {
+    "domain" : "10",
+    "range" : "19",
+    "id" : "115",
+    "label" : {
+      "IRI-based" : "0",
+      "undefined" : "is a"
+    }
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasResourceRequest",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "hasResourceRequest"
+    },
+    "domain" : "103",
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "116"
+  }, {
+    "iri" : "https://fluidos.eu/ontologies/hasMetadata",
+    "baseIri" : "https://fluidos.eu/ontologies",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "hasMetadata",
+      "undefined" : "metadata"
+    },
+    "domain" : "25",
+    "attributes" : [ "external", "object" ],
+    "id" : "117"
+  } ]
+}
