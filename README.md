@@ -1,4 +1,4 @@
-# FLUIDOS resource definition ontoloty
+# FLUIDOS resource definition ontology
 
 [![format](https://img.shields.io/badge/Ontology_Format-TTL-blue)](https://pages.github.com/fluidos-project/fluidos-ontology/ontology.ttl)
 [![specification](https://img.shields.io/badge/Ontology_Specification-Docs-yellow)](https://pages.github.com/fluidos-project/fluidos-ontology/ontology-specification/)
