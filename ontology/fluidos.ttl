@@ -18,7 +18,7 @@
                                  owl:versionIRI <https://fluidos.eu/ontologies/1.1.0> ;
                                  <http://purl.org/dc/elements/1.1/creator> "FLUIDOS Consortium"@en ;
                                  <http://purl.org/dc/elements/1.1/description> "This ontology describes a schema for specifying resource and functional element requirements and offering within the FLUIDOS Horizon Europe project"@en ;
-                                 <http://purl.org/dc/elements/1.1/publisher> "IBM Research Europe" ;
+                                 <http://purl.org/dc/elements/1.1/publisher> "FLUIDOS"@en ;
                                  dcterms:created "2023-09-15"^^xsd:date ,
                                                  "FLUIDOS Resource and Functional Requirements Ontology" ;
                                  owl:versionInfo "0.0.1" .
@@ -105,7 +105,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://fluidos.eu/ontologies/hasMemory
 :hasMemory rdf:type owl:ObjectProperty ,
                     owl:FunctionalProperty ;
-           rdfs:domain k8s:Node .
+           rdfs:domain :kubernetesNode .
 
 
 ###  https://fluidos.eu/ontologies/hasName
@@ -123,13 +123,13 @@ xsd:date rdf:type rdfs:Datatype .
 :hasNode rdf:type owl:ObjectProperty ,
                   owl:InverseFunctionalProperty ;
          rdfs:domain :Cluster ;
-         rdfs:range  k8s:Node .
+         rdfs:range :kubernetesNode .
 
 
 ###  https://fluidos.eu/ontologies/hasProcessor
 :hasProcessor rdf:type owl:ObjectProperty ,
                        owl:FunctionalProperty ;
-              rdfs:domain k8s:Node ;  
+              rdfs:domain :kubernetesNode ;
               rdfs:range :Processor .
 
 
@@ -465,6 +465,10 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/UnitType
 :UnitType rdf:type owl:Class .
+
+
+###  https://fluidos.eu/ontologies/kubernetesNode
+:kubernetesNode rdf:type owl:Class .
 
 
 #################################################################

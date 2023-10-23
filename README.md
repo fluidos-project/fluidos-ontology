@@ -6,7 +6,10 @@
 [![license](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 [![user guide](https://img.shields.io/badge/User_Guide-Docs-yellow)](https://pages.github.com/fluidos-project/fluidos-ontology/)
 
-`add brief description of the content`
+The ontology developed within the scope of the FLUIDOS project is an ontology that aims to represent and link together information about resources and services offered and accessed within a Kubernetes-based Cloud-to-Edge.
+This work is motivated by the need to better, and formally, define and understand the resources offered within the continuum, their utilization from other actors, and their relationship with the underlining kubernetes infrastructure.
+
+The ontology can be used to generate resources and intent-centered knowledge graphs (i.e. instances of the ontology) and support analytics and other inference tasks in the scope of Cloud Continuum.
 
 ## Quick links
 
@@ -18,7 +21,11 @@
 
 ## Getting started
 
-`add information to start using with reference to examples`
+The FLUIDOS ontology comprises of two ontology definition.
+The first one, called [kubernetes](ontology/kubernetes.ttl), describes resource model and it is automatically generated from the API exposed by Kubernetes.
+The tooling for the generation is available [here](utility/build_k8s_ttl.py).
+The second ontology properly characterizes the cloud continuum according to FLUIDOS terminology, and its interconnection with its counterparts in the Kubernetes world.
+Refer to the FLUIDOS protocol specifications [Docs](https://github.com/fluidos-project/Docs/) for additional information.
 
 ## Help and Support
 
