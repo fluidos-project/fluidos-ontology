@@ -96,6 +96,13 @@ xsd:date rdf:type rdfs:Datatype .
                rdfs:label "apiVersion" .
 
 
+###  https://fluidos.eu/ontologies/hasEdgeNode
+:hasEdgeNode rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :FLUIDOSNode ;
+             rdfs:range :EdgeNode .
+
+
 ###  https://fluidos.eu/ontologies/hasIntentRequest
 :hasIntentRequest rdf:type owl:ObjectProperty ;
                   rdfs:domain :Intent ;
@@ -212,6 +219,56 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
+###  https://fluidos.eu/ontologies#Brand
+:Brand rdf:type owl:Class ;
+       rdfs:subClassOf :Sensor .
+
+
+###  https://fluidos.eu/ontologies#Characteristics
+:Characteristics rdf:type owl:Class ;
+                 rdfs:subClassOf :Sensor .
+
+
+###  https://fluidos.eu/ontologies#Environmental
+:Environmental rdf:type owl:Class ;
+               rdfs:subClassOf :Type .
+
+
+###  https://fluidos.eu/ontologies#Infrared
+:Infrared rdf:type owl:Class ;
+          rdfs:subClassOf :Type .
+
+
+###  https://fluidos.eu/ontologies#Market
+:Market rdf:type owl:Class ;
+        rdfs:subClassOf :Sensor .
+
+
+###  https://fluidos.eu/ontologies#Motion
+:Motion rdf:type owl:Class ;
+        rdfs:subClassOf :Type .
+
+
+###  https://fluidos.eu/ontologies#Node
+:Node rdf:type owl:Class ;
+      rdfs:subClassOf :MetaEdge .
+
+
+###  https://fluidos.eu/ontologies#Product
+:Product rdf:type owl:Class ;
+         rdfs:subClassOf :Sensor .
+
+
+###  https://fluidos.eu/ontologies#Proximity
+:Proximity rdf:type owl:Class ;
+           rdfs:subClassOf :Type .
+
+
+###  https://fluidos.eu/ontologies#Type
+:Type rdf:type owl:Class ;
+      rdfs:subClassOf :Sensor .
+
+
 ###  https://fluidos.eu/ontologies/BandwidthRequirement
 :BandwidthRequirement rdf:type owl:Class ;
                       rdfs:subClassOf :PerformanceRequirement .
@@ -258,6 +315,11 @@ xsd:date rdf:type rdfs:Datatype .
                           rdfs:comment "Contextual characteristics of a FLUIDOS node"@en .
 
 
+###  https://fluidos.eu/ontologies/DeepEdge
+:DeepEdge rdf:type owl:Class ;
+          rdfs:subClassOf :EdgeNode .
+
+
 ###  https://fluidos.eu/ontologies/DiscoveryManager
 :DiscoveryManager rdf:type owl:Class ;
                   rdfs:subClassOf :FLUIDOSNodeComponent .
@@ -267,6 +329,11 @@ xsd:date rdf:type rdfs:Datatype .
 :Domain rdf:type owl:Class ;
         rdfs:subClassOf :FLUIDOSComponent ;
         rdfs:comment "FLUIDOS admnistrative domain"@en .
+
+
+###  https://fluidos.eu/ontologies/EdgeNode
+:EdgeNode rdf:type owl:Class ;
+          rdfs:subClassOf :FLUIDOSComponent .
 
 
 ###  https://fluidos.eu/ontologies/FLUIDOSComponent
@@ -293,7 +360,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/Gateways
 :Gateways rdf:type owl:Class ;
-          rdfs:subClassOf :HardwareResource .
+          rdfs:subClassOf :DeepEdge .
 
 
 ###  https://fluidos.eu/ontologies/GeographicalLocation
@@ -334,7 +401,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/LeafNode
 :LeafNode rdf:type owl:Class ;
-          rdfs:subClassOf :HardwareResource .
+          rdfs:subClassOf :MicroEdge .
 
 
 ###  https://fluidos.eu/ontologies/LocalStorage
@@ -347,9 +414,19 @@ xsd:date rdf:type rdfs:Datatype .
         rdfs:subClassOf :HardwareResource .
 
 
+###  https://fluidos.eu/ontologies/MetaEdge
+:MetaEdge rdf:type owl:Class ;
+          rdfs:subClassOf :EdgeNode .
+
+
 ###  https://fluidos.eu/ontologies/MetaOrchestrator
 :MetaOrchestrator rdf:type owl:Class ;
                   rdfs:subClassOf :FLUIDOSNodeComponent .
+
+
+###  https://fluidos.eu/ontologies/MicroEdge
+:MicroEdge rdf:type owl:Class ;
+           rdfs:subClassOf :EdgeNode .
 
 
 ###  https://fluidos.eu/ontologies/NetworkInterface
@@ -475,6 +552,136 @@ xsd:date rdf:type rdfs:Datatype .
 #    Individuals
 #################################################################
 
+###  https://fluidos.eu/ontologies#Accelerometer
+:Accelerometer rdf:type owl:NamedIndividual ,
+                        :Motion .
+
+
+###  https://fluidos.eu/ontologies#Accuracy
+:Accuracy rdf:type owl:NamedIndividual ,
+                   :Characteristics .
+
+
+###  https://fluidos.eu/ontologies#Automotive
+:Automotive rdf:type owl:NamedIndividual ,
+                     :Market .
+
+
+###  https://fluidos.eu/ontologies#BT_Gateway
+:BT_Gateway rdf:type owl:NamedIndividual ,
+                     :Gateways .
+
+
+###  https://fluidos.eu/ontologies#BT_Node
+:BT_Node rdf:type owl:NamedIndividual ,
+                  :LeafNode .
+
+
+###  https://fluidos.eu/ontologies#BluetoothMapperService
+:BluetoothMapperService rdf:type owl:NamedIndividual ,
+                                 :RuntimeService .
+
+
+###  https://fluidos.eu/ontologies#CPU
+:CPU rdf:type owl:NamedIndividual ,
+              :ProcessorType .
+
+
+###  https://fluidos.eu/ontologies#Consumption
+:Consumption rdf:type owl:NamedIndividual ,
+                      :Characteristics .
+
+
+###  https://fluidos.eu/ontologies#E-Compass
+:E-Compass rdf:type owl:NamedIndividual ,
+                    :Motion .
+
+
+###  https://fluidos.eu/ontologies#EdgeCore
+:EdgeCore rdf:type owl:NamedIndividual ,
+                   :Node .
+
+
+###  https://fluidos.eu/ontologies#Gyroscope
+:Gyroscope rdf:type owl:NamedIndividual ,
+                    :Motion .
+
+
+###  https://fluidos.eu/ontologies#Healthcare
+:Healthcare rdf:type owl:NamedIndividual ,
+                     :Market .
+
+
+###  https://fluidos.eu/ontologies#Humidity
+:Humidity rdf:type owl:NamedIndividual ,
+                   :Environmental .
+
+
+###  https://fluidos.eu/ontologies#Industrial
+:Industrial rdf:type owl:NamedIndividual ,
+                     :Market .
+
+
+###  https://fluidos.eu/ontologies#InertialMeasurementUnit
+:InertialMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  :Motion .
+
+
+###  https://fluidos.eu/ontologies#Infrared
+:Infrared rdf:type owl:NamedIndividual ,
+                   :Infrared .
+
+
+###  https://fluidos.eu/ontologies#LoRa_Gateway
+:LoRa_Gateway rdf:type owl:NamedIndividual ,
+                       :Gateways .
+
+
+###  https://fluidos.eu/ontologies#Lora_Node
+:Lora_Node rdf:type owl:NamedIndividual ,
+                    :LeafNode .
+
+
+###  https://fluidos.eu/ontologies#MCU
+:MCU rdf:type owl:NamedIndividual ,
+              :ProcessorType .
+
+
+###  https://fluidos.eu/ontologies#MPU
+:MPU rdf:type owl:NamedIndividual ,
+              :ProcessorType .
+
+
+###  https://fluidos.eu/ontologies#Microphone
+:Microphone rdf:type owl:NamedIndividual ,
+                     :Environmental .
+
+
+###  https://fluidos.eu/ontologies#PersonalElectronics
+:PersonalElectronics rdf:type owl:NamedIndividual ,
+                              :Market .
+
+
+###  https://fluidos.eu/ontologies#Pressure
+:Pressure rdf:type owl:NamedIndividual ,
+                   :Environmental .
+
+
+###  https://fluidos.eu/ontologies#ProximityRanging
+:ProximityRanging rdf:type owl:NamedIndividual ,
+                           :Proximity .
+
+
+###  https://fluidos.eu/ontologies#SamplingRate
+:SamplingRate rdf:type owl:NamedIndividual ,
+                       :Characteristics .
+
+
+###  https://fluidos.eu/ontologies#Temperature
+:Temperature rdf:type owl:NamedIndividual ,
+                      :Environmental .
+
+
 ###  https://fluidos.eu/ontologies#ISO/IEC_27001
 <https://fluidos.eu/ontologies#ISO/IEC_27001> rdf:type owl:NamedIndividual ,
                                                        :SecurityStandard ;
@@ -487,8 +694,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  https://fluidos.eu/ontologies/AURIX_-_TC3xx
-:AURIX_-_TC3xx rdf:type owl:NamedIndividual ,
-                        :Gateways .
+:AURIX_-_TC3xx rdf:type owl:NamedIndividual .
 
 
 ###  https://fluidos.eu/ontologies/CCPA
@@ -498,22 +704,22 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/Cortex-A7
 :Cortex-A7 rdf:type owl:NamedIndividual ,
-                    :Gateways .
+                    :Processor .
 
 
 ###  https://fluidos.eu/ontologies/Cortex-A9
 :Cortex-A9 rdf:type owl:NamedIndividual ,
-                    :Gateways .
+                    :Processor .
 
 
 ###  https://fluidos.eu/ontologies/Cortex-M4
 :Cortex-M4 rdf:type owl:NamedIndividual ,
-                    :LeafNode .
+                    :Processor .
 
 
 ###  https://fluidos.eu/ontologies/Cortex-M7
 :Cortex-M7 rdf:type owl:NamedIndividual ,
-                    :LeafNode .
+                    :Processor .
 
 
 ###  https://fluidos.eu/ontologies/GDPR
@@ -536,7 +742,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/Intel_Atom
 :Intel_Atom rdf:type owl:NamedIndividual ,
-                     :Gateways .
+                     :Processor .
 
 
 ###  https://fluidos.eu/ontologies/NIST
@@ -564,8 +770,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  https://fluidos.eu/ontologies/RPi_4
-:RPi_4 rdf:type owl:NamedIndividual ,
-                :Gateways .
+:RPi_4 rdf:type owl:NamedIndividual .
 
 
 ###  https://fluidos.eu/ontologies/SOX
@@ -595,7 +800,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://fluidos.eu/ontologies/i.MX8M_Quad_Core_Cortex_A53
 :i.MX8M_Quad_Core_Cortex_A53 rdf:type owl:NamedIndividual ,
-                                      :Gateways .
+                                      :Processor .
 
 
 #################################################################
@@ -607,4 +812,16 @@ xsd:date rdf:type rdfs:Datatype .
                       "SuperNode"@en .
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :DeepEdge
+                :MetaEdge
+                :MicroEdge
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
