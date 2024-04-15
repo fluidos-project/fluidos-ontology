@@ -11,24 +11,36 @@ def load_schema(path: str) -> dict[str, Any]:
         return json.load(input)
 
 
-def build_property_range(spec: dict[str, Any]) -> str | list[str]:
+def build_property_range(spec: dict[str, Any]) -> tuple[str | list[str], bool]:
     t = spec.get("type", None)
     if t is None:
         if "oneOf" in spec:
             return [
                 oo["$ref"] for oo in spec["oneOf"]
-            ]
+            ], True
         print(f"### {spec=}")
         raise ValueError()
 
     if t == "boolean":
-        return "xsd:boolean"
+        return "xsd:boolean", True
     if t == "string":
-        return "xsd:string"
+        return "xsd:string", True
     if t == "object":
-        return "object"
+        return "object", True
     if t == "integer":
-        return "xs:integer"
+        return "xs:integer", True
+
+    if t == "array":
+        if "items" not in spec:
+            return "owl:Thing", False
+
+        item_type = spec["items"]["type"]
+        if item_type == "boolean":
+            return "xsd:boolean", False
+        if item_type == "string":
+            return "xsd:string", False
+        if item_type == "integer":
+            return "xs:integer", False
 
     print(f"**** {spec=}")
     raise ValueError()
@@ -41,12 +53,10 @@ def process_property(property_name: str, spec: dict[str, str], parent: str) -> N
     name = f"{parent}_{property_name}"
 
     print()
-    print(f"### https://fluidos.eu/ontologies/{name}")
-    print(f":has{name} rdf:type owl:ObjectProperty ;")
 
     description = spec.get("description", f"A {property_name} of {parent}")
 
-    r_type = build_property_range(spec)
+    r_type, is_functional = build_property_range(spec)
     if r_type == "object":
         objects.append((name, spec))
         r_type = property_name
@@ -55,6 +65,12 @@ def process_property(property_name: str, spec: dict[str, str], parent: str) -> N
         refs = r_type
         r_type = property_name
 
+    print(f"### https://fluidos.eu/ontologies/{name}")
+
+    if is_functional:
+        print(f":has{name} rdf:type owl:FunctionalProperty ;")
+    else:
+        print(f":has{name} rdf:type owl:ObjectProperty ;")
     print(f"\t rdfs:comment \"{description}\"@en ;")
     print(f"\t rdfs:domain :{parent} ;")
     print(f"\t rdfs:range {r_type} ;")
