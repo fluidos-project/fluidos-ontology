@@ -7,17 +7,24 @@ from typing import Any
 
 
 def load_schema(path: str) -> dict[str, Any]:
-    with open(path, "r") as input:
-        return json.load(input)
+    try:
+        with open(path, "r") as input:
+            return json.load(input)
+    except FileNotFoundError:
+        blocks = path.split("/")
+        return load_schema("/".join(blocks[:-2] + ["flavor-types"] + blocks[-2:]))
 
 
 def build_property_range(spec: dict[str, Any]) -> tuple[str | list[str], bool]:
     t = spec.get("type", None)
     if t is None:
         if "oneOf" in spec:
-            return [
-                oo["$ref"] for oo in spec["oneOf"]
-            ], True
+            try:
+                return [
+                    oo["$ref"] for oo in spec["oneOf"]
+                ], True
+            except KeyError:
+                pass
         print(f"### {spec=}")
         raise ValueError()
 

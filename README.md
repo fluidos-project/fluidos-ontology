@@ -26,6 +26,7 @@ The first one, called [kubernetes](ontology/kubernetes.ttl), describes resource 
 The tooling for the generation is available [here](utility/build_k8s_ttl.py).
 The second ontology properly characterizes the cloud continuum according to FLUIDOS terminology, and its interconnection with its counterparts in the Kubernetes world.
 Refer to the FLUIDOS protocol specifications [Docs](https://github.com/fluidos-project/Docs/) for additional information.
+Within the FLUIDOS ontology, the definition of Flavor follows the specifications of the data model of the REAR protocol (see [here](https://github.com/fluidos-project/REAR-data-models))
 
 ## Help and Support
 
