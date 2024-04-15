@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 
 import os
-import sys
-from dataclasses import dataclass
-from typing import Optional
 
 
 def extract_resources() -> list[tuple]:
@@ -61,7 +58,7 @@ def process_documentation(data):
     return fields
 
 
-def extract_object_properties(obj_name: str) -> tuple[list[tuple], Optional[list[tuple]]]:
+def extract_object_properties(obj_name: str) -> tuple[list[tuple], list[tuple]|None]:
     with os.popen(f"kubectl explain {obj_name}.spec") as stream:
         specs_data = stream.read()
 
@@ -79,8 +76,8 @@ def build_property_name(resource_name: str, property_name: str) -> str:
     return f"{resource_name}_{property_name}"
 
 
-def build_property_range(property_spec: list[tuple]) -> tuple[str, bool]:
-    codomain = property_spec[1]
+def build_property_range(property_spec: list[str]) -> tuple[str, bool]:
+    codomain: str = property_spec[1]
 
     if codomain == '<boolean>':
         return 'xsd:boolean', True
@@ -122,7 +119,7 @@ def main() -> int:
         print()
         print(f"### {base_uri}{resource[-1]}")
         print(f":{resource[-1]} rdf:type owl:Class ;")
-        print(f"\t rdf:subClassOf :KubernetesComponent ;")
+        print("\t rdf:subClassOf :KubernetesComponent ;")
         print(f"\t rdf:label \"{resource[-1]}\"@en ;")
         print(f"\t :apiVersion \"{resource[2]}\" ;")
         if obj_spec:
@@ -146,7 +143,7 @@ def main() -> int:
         print()
         print(f"### {base_uri}{resource[-1]}Spec")
         print(f":{resource[-1]}Spec rdf:type owl:Class ;")
-        print(f"\t rdf:subClassOf :KubernetesComponentSpec ;")
+        print("\t rdf:subClassOf :KubernetesComponentSpec ;")
         print(f"\t rdf:label \"{resource[-1]}Spec\"@en ;")
         print(f"\t :apiVersion \"{resource[2]}\" ;")
         print(f"\t :isNameSpaced :{resource[3]} .")
@@ -157,16 +154,17 @@ def main() -> int:
             if r_type == ':string':
                 raise Exception(f"{r_type}, {obj_property}")
             print()
-            print(f'### {base_uri}#{property_name}')
+            print(f"### {base_uri}#{property_name}")
             if is_functional:
-                print(f':{property_name} rdf:type owl:FunctionalProperty ;')
+                print(f":{property_name} rdf:type owl:FunctionalProperty ;")
             else:
-                print(f':{property_name} rdf:type owl:ObjectProperty ;')
-            print(f'\t rdfs:domain :{resource[-1]}Spec ;')
-            print(f'\t rdfs:range {r_type} ;')
-            print(f'\t rdf:label "{property_name}"@en .')
+                print(f":{property_name} rdf:type owl:ObjectProperty ;")
+            print(f"\t rdfs:domain :{resource[-1]}Spec ;")
+            print(f"\t rdfs:range {r_type} ;")
+            print(f"\t rdf:label \"{property_name}\"@en .")
+
+    return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
