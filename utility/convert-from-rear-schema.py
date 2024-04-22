@@ -15,15 +15,23 @@ def load_schema(path: str) -> dict[str, Any]:
         return load_schema("/".join(blocks[:-2] + ["flavor-types"] + blocks[-2:]))
 
 
-def build_property_range(spec: dict[str, Any]) -> tuple[str | list[str], bool]:
+def process_subtype(oo: dict[str, Any]) -> str | dict[str, Any]:
+    if "$ref" in oo:
+        return oo["$ref"]
+
+    return oo
+
+
+def build_property_range(spec: dict[str, Any]) -> tuple[str | list[str | dict[str, Any]], bool]:
     t = spec.get("type", None)
     if t is None:
         if "oneOf" in spec:
             try:
                 return [
-                    oo["$ref"] for oo in spec["oneOf"]
+                    process_subtype(oo) for oo in spec["oneOf"]
                 ], True
             except KeyError:
+                print("not found")
                 pass
         print(f"### {spec=}")
         raise ValueError()
@@ -56,6 +64,7 @@ def build_property_range(spec: dict[str, Any]) -> tuple[str | list[str], bool]:
 def process_property(property_name: str, spec: dict[str, str], parent: str) -> None:
     objects: list[tuple[str, dict[str, str]]] = []
     refs: list[str] = []
+    subobjs: list[Any] = []
 
     name = f"{parent}_{property_name}"
 
@@ -69,7 +78,8 @@ def process_property(property_name: str, spec: dict[str, str], parent: str) -> N
         r_type = property_name
 
     if type(r_type) is list:
-        refs = r_type
+        refs = [ref_type for ref_type in r_type if type(ref_type) is str]
+        subobjs = [ref_obj for ref_obj in r_type if type(ref_obj) is not str]
         r_type = property_name
 
     print(f"### https://fluidos.eu/ontologies/{name}")
@@ -90,8 +100,11 @@ def process_property(property_name: str, spec: dict[str, str], parent: str) -> N
     for ref in refs:
         process_schema(os.path.join(sys.argv[1], ref), f":{property_name}")
 
+    for subobj in subobjs:
+        process_object(subobj["title"], subobj, f":{property_name}", None)
 
-def process_object(object_name: str, spec: dict[str, Any], parent: str | None, desc: str | None) -> None:  # -> list[tuple[str, dict[str, Any], str]]:
+
+def process_object(object_name: str, spec: dict[str, Any], parent: str | None, desc: str | None) -> None:
     print(f"###  https://fluidos.eu/ontologies/{object_name}")
     print(f":{object_name} rdf:type {parent} ;")
     if desc is None:
@@ -108,8 +121,6 @@ def process_object(object_name: str, spec: dict[str, Any], parent: str | None, d
 
     for property_name, property_spec in schema_properties.items():
         properties_to_process.append((property_name, property_spec))
-        # n = f"{object_name}_{property_name}"
-        # print(f"\t :has{property_name} :{n}")
 
     print()
 
