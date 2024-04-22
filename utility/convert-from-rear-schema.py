@@ -90,7 +90,7 @@ def process_property(property_name: str, spec: dict[str, str], parent: str) -> N
         print(f":has{name} rdf:type owl:ObjectProperty ;")
     print(f"\t rdfs:comment \"{description}\"@en ;")
     print(f"\t rdfs:domain :{parent} ;")
-    print(f"\t rdfs:range {r_type} ;")
+    print(f"\t rdfs:range :{r_type} ;")
     print(f"\t rdf:label \"{property_name}\"@en .")
     print()
 
@@ -106,6 +106,8 @@ def process_property(property_name: str, spec: dict[str, str], parent: str) -> N
 
 def process_object(object_name: str, spec: dict[str, Any], parent: str | None, desc: str | None) -> None:
     print(f"###  https://fluidos.eu/ontologies/{object_name}")
+    if parent is None:
+        parent = "owl:Class"
     print(f":{object_name} rdf:type {parent} ;")
     if desc is None:
         if "description" in spec:
