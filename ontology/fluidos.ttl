@@ -74,7 +74,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://fluidos.eu/ontologies/aggregatesResources
 :aggregatesResources rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf owl:topObjectProperty ;
-                     rdfs:domain :Flavour ;
+                     rdfs:domain :Flavor ;
                      rdfs:range :ResourceInstance .
 
 
@@ -171,7 +171,7 @@ xsd:date rdf:type rdfs:Datatype .
 :hasUUID rdf:type owl:ObjectProperty ,
                   owl:FunctionalProperty ,
                   owl:InverseFunctionalProperty ;
-         rdfs:domain :Flavour ;
+         rdfs:domain :Flavor ;
          rdfs:range :Resource ;
          rdfs:label "HasUniqueIdentifier"@en .
 
@@ -352,10 +352,6 @@ xsd:date rdf:type rdfs:Datatype .
 :FLUIDOSNodeComponent rdf:type owl:Class ;
                       rdfs:subClassOf :FLUIDOSComponent .
 
-
-###  https://fluidos.eu/ontologies/Flavour
-:Flavour rdf:type owl:Class ;
-         rdfs:comment "An aggregated set of resources offered by a FLUIDOS node"@en .
 
 
 ###  https://fluidos.eu/ontologies/Gateways
